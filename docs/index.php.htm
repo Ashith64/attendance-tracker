@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+
+  <!-- Fonts & Icons -->
+  <link href="index.php_files/css_bWRf.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="index.php_files/uikit.min_bWRf.css">
+  <link rel="stylesheet" href="index.php_files/style_bWRf.css">
+  <link rel="stylesheet" href="index.php_files/landingPage_bWRf.css">
+  <link rel="shortcut icon" href="index.php_files/logo_bWRf.png" type="image/x-icon">
+
+  <!-- Scripts -->
+  <script type="text/javascript" async="" charset="utf-8" src="index.php_files/recaptcha__en_bWRf.js" crossorigin="anonymous" integrity="sha384-shnkLybQsS8ZF3OGX2CmBHMbNG6/Qvu5R7BbyzwL7pdd/IelHxNYcZ3Rjlq8jLM2"></script><script type="text/javascript" async="" charset="utf-8" src="index.php_files/recaptcha__en_bWRf.js" crossorigin="anonymous" integrity="sha384-shnkLybQsS8ZF3OGX2CmBHMbNG6/Qvu5R7BbyzwL7pdd/IelHxNYcZ3Rjlq8jLM2"></script><script src="index.php_files/uikit.min_bWRf.js"></script>
+  <script src="index.php_files/uikit-icons.min_bWRf.js"></script>
+  <script src="index.php_files/api_bWRf.js" async="" defer="defer"></script>
+  <style type="text/css">
+    footer {
+    margin: 0px 0px !important;
+    max-width: 100%;
+  }
+  </style>
+  <link rel="stylesheet" href="index.php_files/error-modal_bWRf.css">
+<script src="index.php_files/api_002_bWRf.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    grecaptcha.ready(function () {
+        grecaptcha.execute('6LfiijIrAAAAAJyCUSi61A9wMFUvlqWxKyKfA3Jw', { action: 'result_form' }).then(function (token) {
+            let tokenInput = document.getElementById('recaptcha-token');
+            if (tokenInput) {
+                tokenInput.value = token;
+            }
+        });
+    });
+});
+</script>
+</head>
+
+<body>
+  <!-- Page Layout -->
+  <div class="cn-landing uk-grid" uk-grid="" uk-height-match="target: &gt; div &gt; .uk-card">
+    <div class="uk-width-3-5@l uk-width-1-2@s uk-first-column">
+      <div class="uk-card uk-card-default uk-card-body cn-bgpart1">
+        <div class="cn-logo cn-web-logo">
+          <a href="#!" rel="home">
+            <div class="cn-logo-image cn-big-logo">
+              <img src="index.php_files/logo_bWRf.png" alt="logo" width="110px">
+            </div>
+          </a>
+          <div class="cn-landinglogo-text cn-landing-logo">
+            <a class="cn-heading" href="#!" rel="home">THE NATIONAL INSTITUTE OF ENGINEERING<br>570008</a>
+          </div>
+        </div>
+        <div class="cn-welcome">
+          <article class="uk-article">
+            <h2 class="uk-article-title"><a class="uk-link-reset" href="">Welcome to NIE</a></h2>
+            <p>The National Institute of Engineering (NIE) is a grant-in-aid institution and approved by the All India Council for Technical Education (AICTE), New Delhi. NIE got autonomous status from Visvesvaraya Technological University, Belagavi in 2007. It has been accredited by NAAC.</p>
+          </article>
+          <div class="uk-width-1-1">
+            <div class="uk-card uk-card-default uk-card-body cn-cal-events">
+              <div class="uk-clearfix">
+                <div class="uk-float-left">
+                  <div class="uk-card">
+                    <a href="#!"><h3>Notice Board</h3></a>
+                  </div>
+                </div>
+              </div>
+              <div class="uk-panel uk-panel-scrollable cn-events">
+                <ul class="uk-list">
+                  <li style="font-size:16px;"><span class="uk-margin-small-right uk-icon" uk-icon="icon: info"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="info"><path d="M12.13,11.59 C11.97,12.84 10.35,14.12 9.1,14.16 C6.17,14.2 9.89,9.46 8.74,8.37 C9.3,8.16 10.62,7.83 10.62,8.81 C10.62,9.63 10.12,10.55 9.88,11.32 C8.66,15.16 12.13,11.15 12.14,11.18 C12.16,11.21 12.16,11.35 12.13,11.59 C12.08,11.95 12.16,11.35 12.13,11.59 L12.13,11.59 Z M11.56,5.67 C11.56,6.67 9.36,7.15 9.36,6.03 C9.36,5 11.56,4.54 11.56,5.67 L11.56,5.67 Z"></path><circle fill="none" stroke="#000" stroke-width="1.1" cx="10" cy="10" r="9"></circle></svg></span>Welcome to the preview of the new mobile-friendly parent portal</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="cn-absolute">Copyright © Powered By <a href="http://www.contineo.in/" target="_blank">Contineo</a></div> -->
+      </div>
+    </div>
+
+    <div class="uk-width-2-5@l uk-width-1-2@s cn-pad-left0 cn-mar-remove">
+      <div class="uk-card uk-card-default uk-card-body cn-bgpart2">
+        <!-- <div class="uk-flex uk-flex-middle cn-mob-view">
+          <img src="images/logo.png" alt="logo" width="13%">
+          <div class="cn-clgname">
+            <a href="#!" rel="home"></a>
+            <small class="uk-flex" style="font-size:16px;">570008</small>
+          </div>
+        </div> -->
+
+        <a href="https://parents.nie.ac.in/" class="cn-link" style="color: #d3dbe0; float: left; margin-left: 9px;">&lt;&lt; Home</a>
+
+        <div class="uk-vertical-align-middle cn-form-box">
+          <form id="login-form" action="index.php" method="post" onsubmit="return combineDigits();">
+            <div class="uk-margin">
+              <label class="clr1">Select Verification Type</label>
+              <div class="uk-form-controls">
+                <select class="uk-select" id="id-type-select" name="idType" required="">
+                  <option value="" disabled="disabled">Select an option</option>
+                                       <option value="1" selected="selected">Father Mobile Last 4 Digits</option>
+                                       <option value="2">Mother Mobile Last 4 Digits</option>
+                                       <option value="5">Guardian Mobile Last 4 Digits</option>
+                                  </select>
+              </div>
+            </div>
+
+            <div class="uk-margin">
+              <label class="clr1">Enter Last 4 Digits</label>
+              <div class="uk-grid-small uk-child-width-1-4 uk-grid" uk-grid="">
+                <div class="uk-first-column"><input class="uk-input digit-input" type="text" maxlength="1" pattern="[0-9]" required="" value="4"></div>
+                <div><input class="uk-input digit-input" type="text" maxlength="1" pattern="[0-9]" required="" value="3"></div>
+                <div><input class="uk-input digit-input" type="text" maxlength="1" pattern="[0-9]" required="" value="9"></div>
+                <div><input class="uk-input digit-input" type="text" maxlength="1" pattern="[0-9]" required="" value="5"></div>
+                
+              </div>
+              <label class="clr1">(Enter 4-digit ID)</label>
+            </div>
+
+            <input type="hidden" name="enteredid" id="enteredid" value="4395">
+            <input type="hidden" id="remember" name="remember" value="No" alt="Remember Me" readonly="readonly">
+            <input type="hidden" name="option" value="com_user" readonly="readonly">
+            <input type="hidden" name="task" value="login" readonly="readonly">
+            <input type="hidden" name="username" value="4NI24IS025">
+            <input type="hidden" name="passwd" value="MndHMG0zMGJsNjk2LXJTMGplMUFlLU9sMUdvM0NL">
+            <input type="hidden" name="return" value="�w^Ƙi" readonly="readonly">
+            <input type="hidden" name="return" value="" readonly="readonly">
+            <input type="hidden" name="c915534c2f1700230abfec32b518ca85" value="1">
+            <div class="uk-margin uk-text-right">
+              <input type="submit" class="uk-button uk-button-primary uk-button-large uk-width-1-1 cn-login-btn cn-submit1 cn-landing-login1" value="Submit">
+            </div>
+            <div class="uk-margin" style="">
+                <div class="uk-inline uk-width-1-1">
+             <input type="hidden" name="token" id="recaptcha-token" value="HFc215YBRdPzYhXHpMXUddXAIyAh0YWWp_C2A6BhwYPTM5EyAXOGU6AGx2dilaZyEjWAE5Al5dcW1jXm1kYSF9ckI1aEwaFCkwMHkkCiZaYVg6Sj98fi4iXCICR1xZQElWTWcUSFd1az1bZHNaEApJdnJKbl4uSGNIZRU8YBNcPzYhCnN9dUVPfRNRR0AfSGIJQCxbRxtBR3FuAScALxRcAnsBRzVAeWg1K2c5AhwIAgkBSR0cEDR_Zx4DalVTSj4nQR8zCmZXZlkmTUUpUHl9PzUCJB57Fx4KWFxoFl1YCGp0MyNDbGBFc35AWVxMVT5IGnQ7LXhmL3RxUHAIfGh1HAIyAh0YWX56ABlhREJAaWAtFlMHJBY6AG4bUzJbcWtnagE5AmJsFx4DOx4CECF8AAlyNHdWSC0hJwlDHSYCbRp-HCkNGjkgaHEVMm0JBBwWCT0fFA5XID9TJT8Gcwo_LiweOhYxHTkIBk58IEdwYiEhfC4OAgIIFxUyFQ1u">
+            <input type="hidden" name="action" value="result_form">
+                </div>
+              </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+ <footer>
+      <div class="uk-clearfix cn-footer-text">
+        <div class="uk-float-left">
+          <p class="uk-text-left">
+            Copyright © Powered By <a href="http://www.contineo.in/" target="_blanks">Contineo</a>
+          </p>
+        </div>
+        <div class="uk-float-right">
+          <p class="uk-text-right terms"><a href="#!">Terms of Service</a> | <a href="#!">Privacy Policy</a></p>
+        </div>
+      </div>
+    </footer>
+<script>
+  // Restrict to digits only and move focus to next box
+  document.querySelectorAll('.digit-input').forEach((input, index, inputs) => {
+    input.addEventListener('input', (e) => {
+      input.value = input.value.replace(/\D/, ''); // Allow digits only
+      if (input.value && index < inputs.length - 1) {
+        inputs[index + 1].focus();
+      }
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !input.value && index > 0) {
+        inputs[index - 1].focus();
+      }
+    });
+  });
+
+  // Combine 4 digits into one hidden field before submit
+  function combineDigits() {
+    const digits = Array.from(document.querySelectorAll('.digit-input')).map(el => el.value);
+    if (digits.some(d => d === '')) {
+      alert("Please enter all 4 digits.");
+      return false;
+    }
+    document.getElementById('enteredid').value = digits.join('');
+    return true;
+  }
+</script>
+<script>
+    UIkit.modal(document.getElementById('myloginModal')).show();
+</script>
+
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-dezobvq60yik" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="index.php_files/anchor_bWRf.htm"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>

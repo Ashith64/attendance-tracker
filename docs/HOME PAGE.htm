@@ -1,0 +1,776 @@
+<html><head>
+<meta name="robots" content="noindex, nofollow, noarchive">
+   <title>Contineo - Bringing Happiness to work and study places!</title>
+     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="contineo, Contineo">
+  <meta name="description" content="contineo">
+  <meta name="generator" content="contineo">
+  <title>NIE</title>
+  <style type="text/css">
+    <!--
+#forcepost-nav-wrap{position:fixed;right:20px;bottom:20px;z-index:999999;display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);border:1px solid rgba(34,211,238,0.4);border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(34,211,238,0.1);backdrop-filter:blur(10px);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell',sans-serif;transform:translateY(20px);opacity:0;animation:forcepostNavIn 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards;max-width:calc(100vw - 40px);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);}#forcepost-nav-wrap.collapsed{width:48px;height:48px;padding:0;border-radius:50%;justify-content:center;gap:0;background:linear-gradient(135deg,rgba(34,211,238,0.2),rgba(34,211,238,0.1));border:1.5px solid rgba(34,211,238,0.5);}#forcepost-nav-wrap.collapsed .fp-btn{position:absolute;opacity:0;pointer-events:none;padding:0;width:0;height:0;font-size:0;}#forcepost-nav-wrap.collapsed::after{content:'';width:12px;height:12px;background:#22d3ee;border-radius:50%;box-shadow:0 0 12px rgba(34,211,238,0.6),inset 0 0 6px rgba(255,255,255,0.2);animation:pulse 2s ease-in-out infinite;}@keyframes pulse{0%,100%{opacity:0.6;transform:scale(1);}50%{opacity:1;transform:scale(1.2);}}#forcepost-nav-wrap .fp-btn{appearance:none;border:none;background:linear-gradient(135deg,rgba(34,211,238,0.15),rgba(34,211,238,0.05));color:#e2e8f0;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:600;letter-spacing:0.3px;cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border:1.5px solid rgba(34,211,238,0.3);display:flex;align-items:center;gap:8px;white-space:nowrap;position:relative;overflow:hidden;}#forcepost-nav-wrap .fp-btn:hover:not(:disabled){border-color:rgba(34,211,238,0.8);background:linear-gradient(135deg,rgba(34,211,238,0.25),rgba(34,211,238,0.15));color:#ffffff;box-shadow:0 0 20px rgba(34,211,238,0.3),inset 0 1px 0 rgba(255,255,255,0.1);transform:translateY(-2px);}#forcepost-nav-wrap .fp-btn:active:not(:disabled){transform:translateY(0px);box-shadow:0 0 15px rgba(34,211,238,0.2),inset 0 2px 4px rgba(0,0,0,0.2);}#forcepost-nav-wrap .fp-btn:disabled{color:rgba(148,163,184,0.5);cursor:not-allowed;border-color:rgba(148,163,184,0.2);background:linear-gradient(135deg,rgba(15,23,42,0.3),rgba(15,23,42,0.2));opacity:0.5;}#forcepost-nav-wrap .fp-btn svg{width:16px;height:16px;flex-shrink:0;}@keyframes forcepostNavIn{to{transform:translateY(0);opacity:1;}}@media (max-width:640px){#forcepost-nav-wrap{right:12px;bottom:12px;padding:12px 14px;gap:10px;}#forcepost-nav-wrap .fp-btn{padding:9px 12px;font-size:12px;}}
+    -->
+  </style>
+  <script type="text/javascript" src="HOME%20PAGE_files/joomla.javascript_pHYj.js"></script>
+  <script type="text/javascript">
+(function(){
+var backUrl = "";
+var nextUrl = "";
+var collapseDelay = 15000;
+var expandDelay = 25000;
+if (!document || document.getElementById('forcepost-nav-wrap')) { return; }
+var collapseTimer = null;
+var isCollapsed = false;
+var wrap = null;
+function go(url){ if (url) { window.location.href = url; } }
+function startCollapseTimer(delay) {
+  if (collapseTimer) clearTimeout(collapseTimer);
+  collapseTimer = setTimeout(function() {
+    if (wrap) { wrap.classList.add('collapsed'); isCollapsed = true; }
+  }, delay);
+}
+function expandButtons() {
+  if (isCollapsed && wrap) {
+    wrap.classList.remove('collapsed'); isCollapsed = false;
+    startCollapseTimer(expandDelay);
+  }
+}
+var backSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
+var nextSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+document.addEventListener('DOMContentLoaded', function(){
+  if (document.getElementById('forcepost-nav-wrap')) { return; }
+  wrap = document.createElement('div'); wrap.id = 'forcepost-nav-wrap';
+  var backBtn = document.createElement('button');
+  backBtn.className = 'fp-btn'; backBtn.type = 'button';
+  backBtn.disabled = !backUrl;
+  backBtn.onclick = function(){ go(backUrl); };
+  backBtn.innerHTML = backSvg + '<span>Back</span>';
+  var nextBtn = document.createElement('button');
+  nextBtn.className = 'fp-btn'; nextBtn.type = 'button';
+  nextBtn.disabled = !nextUrl;
+  nextBtn.onclick = function(){ go(nextUrl); };
+  nextBtn.innerHTML = '<span>Next</span>' + nextSvg;
+  wrap.appendChild(backBtn); wrap.appendChild(nextBtn);
+  document.body.appendChild(wrap);
+  wrap.addEventListener('mouseenter', expandButtons);
+  startCollapseTimer(collapseDelay);
+});
+})();
+  </script>
+
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="shortcut icon" href="https://parents.nie.ac.in/templates/contineoReg/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="HOME%20PAGE_files/uikit_pHYj.css">
+   
+     <link rel="stylesheet" href="HOME%20PAGE_files/uikit.min_pHYj.css">
+    <link rel="stylesheet" href="HOME%20PAGE_files/style_pHYj.css">
+    <script src="HOME%20PAGE_files/uikit.min_pHYj.js"></script>
+    <script src="HOME%20PAGE_files/uikit-icons.min_pHYj.js"></script>
+    <link href="HOME%20PAGE_files/jquery-ui_pHYj.css" rel="stylesheet">
+      
+    <link rel="stylesheet" href="HOME%20PAGE_files/billboard_pHYj.css">
+    <link rel="stylesheet" href="HOME%20PAGE_files/billboard.min_pHYj.css">
+    <link rel="stylesheet" href="HOME%20PAGE_files/insight.min_pHYj.css">
+    <link rel="stylesheet" href="HOME%20PAGE_files/insight_pHYj.css">
+    <script src="HOME%20PAGE_files/billboard_pHYj.js"></script>
+    <script src="HOME%20PAGE_files/billboard.pkgd_pHYj.js"></script>
+    <script src="HOME%20PAGE_files/d3.v5.min_pHYj.js"></script>
+    <link href="HOME%20PAGE_files/jquery-ui_pHYj.css" rel="stylesheet">
+    
+  <script type="text/javascript">
+document.addEventListener('contextmenu', e => e.preventDefault(), false);
+document.addEventListener('keydown', e => {
+    if (e.key === "F12" || (e.ctrlKey || e.metaKey) && (e.key === "U" || e.shiftKey && (e.key === "I" || e.key === "C")))
+        e.preventDefault();
+}, false);
+</script><style type="text/css">
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+</style></head>
+  
+
+
+
+  <body id="page_bg"><form action="index.php" method="POST" name="log">
+
+<input type="hidden" name="option" value="com_user">
+
+<input type="hidden" name="task" value="logout">
+
+<input type="hidden" name="return" value="�w^Ƙi">
+
+</form>
+
+<div class="uk-container">
+    <div class="cn-box-layout" uk-height-viewport="" style="min-height: calc(-70px + 100vh);">
+      
+		<style>
+.cn-nav-bar-list li a {
+    padding: 0px 10px !important;
+    font-size:15px !important;
+}
+.uk-navbar-dropdown {
+    width: 300px !important;
+    padding: 7px !important;
+    /* top: 47px !important; */
+}
+[class*=uk-navbar-dropdown-bottom] {
+    margin-top: 1px !important;
+}
+.uk-navbar-dropdown p{
+
+}
+@media(max-width:1200px) and (min-width:960px){
+  .cn-nav-bar-list li a {
+    font-size:14px !important;
+}
+.cn-logo-text a {
+    font-weight: 700;
+    font-size: 14px;
+    display: block;
+    float: left;
+    padding-left: 7px;
+    padding-top: 0px;
+    color: #fff;
+}
+}
+span.cn-attend, .cn-absent, .cn-still {
+    white-space: initial;
+}
+  </style>
+<!--  <div class="cn-top-bar uk-text-right">
+<a class="uk-text-right cn-switching"  href="/index.php?option=com_studentdashboard&controller=studentdashboard&task=dashboard">Click Here For OLD Design</a>
+</div> -->
+<div class="uk-section  cn-btm-border">
+ <div class="uk-section uk-section-muted cn-header-blde cn-pad-zero cn-header-menu">
+          <div class="uk-grid uk-grid-collapse uk-grid-stack" uk-grid="">
+            <div class="uk-width-1-4@m uk-width-1-4@l uk-width-1@s uk-first-column" style="align-content:center;">
+              <div class="cn-logo cn-menu-logo uk-flex uk-flex-middle" style="padding:5px;">
+               
+                  <div class="cn-logo-image cn-home-logo">
+                    <img src="HOME%20PAGE_files/logo_pHYj.png" alt="logo">
+                    </div>
+               
+                <div class="cn-logo-text">
+                  <a class="cn-heading" href="#!" rel="home" uk-tooltip="title: THE NATIONAL INSTITUTE OF ENGINEERING, 570008; pos: right" title="" aria-expanded="false">THE NATIONAL INSTITUTE OF ENGINEERING, 570008</a> 
+                </div>
+                </div>
+                
+             
+              </div>
+           
+            
+      
+            <div class="uk-width-expand@m uk-width-4-5@l uk-width-1@s uk-grid-margin uk-first-column">
+              <nav class="uk-navbar-container uk-flex-column cn-menu-list uk-navbar uk-flex-row" data-uk-navbar="" data-uk-toggle="media: @s; cls: uk-flex-row uk-flex-top; mode: media">
+                <button type="button" data-uk-toggle="target: .navbar-collapse; cls: hidden-up-to-s" class="uk-navbar-toggle uk-hidden@s uk-icon uk-navbar-toggle-icon" data-uk-navbar-toggle-icon=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></button>
+                <div class="navbar-collapse hidden-up-to-s">
+                  <div class="uk-navbar-left uk-float-right">
+                    <ul data-uk-toggle="media: @s; cls: uk-navbar-nav uk-padding-remove; mode: media" class="uk-nav uk-nav-primary uk-padding-small cn-nav-bar-list uk-navbar-nav uk-padding-remove">
+
+                                           <li><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=dashboard">Home</a></li>
+                                            <li><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=observation">Proctorship</a></li>
+                                             <li><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=academiccal&amp;task=calenderdisplay&amp;yearId=2">Events</a></li>
+                                             <li><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=timetable">Time Table</a></li>
+                       
+                      <li><a href="https://parents.nie.ac.in/index.php?option=com_history&amp;task=getResult&amp;usn=4NI24IS025">Exam History</a></li><!-- index.php?option=com_history&task=getResult -->
+                       
+                          <li>
+                          <a href="#" aria-expanded="false">Registration<span uk-icon="triangle-down" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="triangle-down"><polygon points="5 7 15 7 10 12"></polygon></svg></span></a>
+                        <div class="uk-navbar-dropdown uk-dropdown-small uk-navbar-dropdown-bottom-right" style="left: 1185px; top: 48px;">
+                          <div class="">
+                             <!-- <a href="index.php?option=com_studregistration&controller=registrationdata&task=vwstaticreg">Registration Details</a>  -->
+      <!-- <a href="index.php?option=com_studregistration&controller=coursereg&task=courseRegvw">Student Registration</a>  -->
+      <p style="margin:10px;"><a href="https://parents.nie.ac.in/index.php?option=com_studregistration&amp;controller=coursereg&amp;task=courseRegvw">Student Registration</a></p>
+     
+
+	<p style="margin:10px;"><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=backlogreg&amp;task=coursereg">F Grade Registration</a>  </p>
+
+<!-- <p style="margin:10px;"> <a href="index.php?option=com_history&controller=studtcourse&task=getEcourse" style="font-weight:normal; text-decoration:underline;">Open elective course Registration</a> </p> -->
+                            
+                        
+                                                                                </div>
+                        </div>
+
+                          </li>
+                       
+<!--                          <li>
+                        <a href="#" aria-expanded="false">Grade Review<span uk-icon="triangle-down"></span></a>
+                        <div class="uk-navbar-dropdown uk-dropdown-small uk-navbar-dropdown-bottom-right" style="left: 1185px; top: 48px;">
+                          <ul class="uk-nav uk-nav-navbar">
+                            <li><a href="index.php?option=com_history&controller=examfee&task=getSubjects&isReval=0">Re-Registration and grade improvement </a></li>
+                            <hr/>
+                            <li><a href="index.php?option=com_history&controller=examfee&task=getSubjects&isReval=1">Supplementary grade review</a></li>
+                           
+                          </ul>
+                        </div>
+                      </li>-->
+<!-- 
+                      <li>
+                        <a href="#" aria-expanded="false">Feedback<span uk-icon="triangle-down"></span></a>
+                        <div class="uk-navbar-dropdown uk-dropdown-small uk-navbar-dropdown-bottom-right" style="left: 1185px; top: 48px;">
+                          <ul class="uk-nav uk-nav-navbar">
+                            <li><a href="index.php?option=com_feedback&controller=feedbackentry&task=feedback">Faculty Feedback </a></li>
+                            <hr/>
+                            <li><a href="index.php?option=com_coursefeedback&controller=feedbackentry&task=feedback">Course Feedback</a></li>
+                                                      </ul>
+                        </div>
+                      </li> -->
+
+                  
+<!-- <li><a  href="index.php?option=com_feedback&controller=feedbackentry&task=feedback">Feedback</a></li> -->
+
+
+    
+    <script>
+									function myFunction()
+										{
+											var txt;
+										var r = confirm("Notice: Without the Hall Ticket with Candidate Signature and Valid College Identity Card, the candidate will not be allowed to appear for the Examination.");
+											//Notice: The Candidate has to compulsorily Affix the Latest Identity Card Size Photograph in the space provided on the Hall Ticket. Without Photo affixed Hall Ticket and Valid Identity Card, the candidate will not be allowed to appear for the examination.
+										if (r == true) {
+											document.getElementById("hallticket").submit();
+										} else {
+											return false;
+										}
+										}
+									</script>
+								
+
+
+                      <li><a href="javascript:document.log.submit()">Logout</a></li>
+                      <form action="index.php" method="post" name="hallticket" id="hallticket">
+										<input type="hidden" name="option" value="com_report">
+										<input type="hidden" name="task" value="preexamReportEngine">
+										<input type="hidden" name="id" value="hallticket">
+										<input type="hidden" name="examId" value="43">
+										<input type="hidden" name="semId" value="">
+										<input type="hidden" name="secdeptId" value="">
+
+										<input type="hidden" name="usn" value="4NI24IS025">
+
+ 									</form>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+
+       
+      
+
+  <style>
+ 
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #909090;
+  
+}
+
+.button1:hover {background-color: #A9A9A9;}
+
+  </style>
+
+  <div class="cn-parent-class">
+
+ 
+
+         <div class="uk-section  cn-finance-sec">
+          <div class="">
+            <div class="cn-mg-left uk-grid uk-grid-collapse" uk-grid="">
+              <div class="uk-width-1-3@l uk-width-1-3@m uk-width-1-3@s cn-student-header cn-red-bg uk-first-column">
+                <div class="cn-stu-data cn-stu-data1">
+                  <h3>ASHITH NAREN MAKANAHALLI</h3>
+                  <img class="uk-preserve-width uk-border" src="HOME%20PAGE_files/Thumbnail_User_Original_26419_ASHITH_NAREN_MAKANAHALLI__pHYj.jpg" alt="Student">
+                </div>
+              </div>
+              <!-- <div style="float:right;" style="margin-top: 20px;">
+                <span >Click <a href="manuals/Bucket configuration KLESCET-2-converted.pdf" style="color: red; font-weight:bold; text-decoration: underline;">HELP</a>  
+              </span></div> -->
+              <div class="uk-width-2-3@l uk-width-2-3@m uk-width-expand@s cn-student-header cn-grey-bg cn-mg-top">
+                <div class="cn-stu-data1 uk-text-right cn-mobile-text">
+                  <div class="">
+                  <h2>4NI24IS025</h2>
+                  </div>
+
+                  <div class="">
+                  <p>B.E-IS,  SEM 05,  SEC D </p>
+                  </div>
+               
+                  
+                  
+                
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        </div>
+        <div class="uk-grid uk-grid-stack" uk-grid="">
+          <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-1@s uk-first-column">
+            <div class="uk-card">
+                 
+                  
+              <button onclick="toggleTheme()" style="float:left;" class="cn-swith-theme">Switch Theme</button>
+            </div>
+          </div>
+   
+   
+    <!-- <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-1@s uk-text-center@l uk-margin-remove-top">
+        <div class="uk-card">
+            <p class="cn-beta button1" ><a href="index.php?option=com_examresult&task=getResult">View Result</a></p>
+        </div>
+    </div>  -->
+    <div class="uk-width-3-4@l uk-width-3-4@m uk-width-1-1@s uk-text-right@l uk-margin-remove-top uk-grid-margin uk-first-column">
+        <div class="uk-card">
+        <p class="uk-text-right cn-last-update">Last Updated On: 12/11/2026</p></div>
+    </div>
+</div>
+<div class="uk-margin-medium-bottom uk-margin-small-top uk-grid-match uk-hidden uk-grid uk-grid-stack" uk-grid="">
+    <div class="uk-width-1-3@l uk-width-1-3@m uk-width-1-1@s">
+        <div class="uk-card uk-card-default cn-cie-stat">
+          <div class="uk-card-header" style="padding: 6px 3px !important;">
+<h3 class="uk-margin-remove-bottom" style="padding:0px 0px !important;">Proctor Details</h3>
+
+        </div>
+        <div class="uk-card-body pd-tblr" style="padding: 6px 3px 0px 3px !important;">
+        <p class="uk-margin-remove-bottom uk-margin-remove-top" style="padding: 3px 0px !important;">Name: Bhavani R</p>
+        <p class="uk-margin-remove-bottom uk-margin-remove-top" style="padding: 3px 0px !important;">Contact No: 8105216206</p>
+        </div>
+        </div>
+    </div>
+    <div class="uk-width-1-3@l uk-width-1-3@m uk-width-1-1@s">
+        <div class="uk-card uk-card-default cn-cie-stat">
+        <div class="uk-card-header" style="padding: 6px 3px !important;">
+        <h3 class="uk-margin-remove-bottom" style="padding:0px 0px !important;">Details</h3>
+</div>
+<div class="uk-card-body pd-tblr" style="padding: 6px 3px 0px 3px !important;">
+<p class="uk-margin-remove-bottom" style="padding: 3px 0px !important;"><a href="https://parents.nie.ac.in/index.php?option=com_history&amp;task=seating">Seating Room Details <span class="uk-float-right uk-icon" uk-icon="chevron-double-right"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="chevron-double-right"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 6 14 10 10 14"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="6 6 10 10 6 14"></polyline></svg></span></a></p>
+<p class="uk-margin-remove-bottom uk-margin-remove-top" style="padding: 3px 0px !important;">
+  <a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=getcoursedetails">Registration Details <span class="uk-float-right uk-icon" uk-icon="chevron-double-right"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="chevron-double-right"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 6 14 10 10 14"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="6 6 10 10 6 14"></polyline></svg></span></a></p>
+</div>
+        </div>
+    </div>
+    <div class="uk-width-1-3@l uk-width-1-3@m uk-width-1-1@s">
+        <div class="uk-card uk-card-default cn-cie-stat">
+        <div class="uk-card-header" style="padding: 6px 3px !important;">
+        <h3 class="uk-margin-remove-bottom" style="padding:0px 0px !important;">User Manuals</h3>
+</div>
+<div class="uk-card-body pd-tblr" style="padding: 6px 3px 0px 3px !important;">
+<p class="uk-margin-remove-bottom" style="padding: 3px 0px !important;">
+  <a href="https://parents.nie.ac.in/manuals/SIT-Feedback%20entry%20User%20Manual.pdf" target="_blank">Feedback manual <span class="uk-float-right uk-icon" uk-icon="chevron-double-right"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="chevron-double-right"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 6 14 10 10 14"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="6 6 10 10 6 14"></polyline></svg></span></a></p>
+<p class="uk-margin-remove-bottom uk-margin-remove-top" style="padding: 3px 0px !important;">
+  <a href="https://parents.nie.ac.in/manuals/Carry%20forward%20backlogs%20user%20manual%20for%20SIT.pdf" target="_blank">Backlog registration manual <span class="uk-float-right uk-icon" uk-icon="chevron-double-right"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="chevron-double-right"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 6 14 10 10 14"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="6 6 10 10 6 14"></polyline></svg></span> </a></p>
+</div>
+        </div>
+    </div>
+</div>
+
+     
+         <script>
+      function toggleTheme(){
+      window.theme = typeof(window.theme)==='string' ? window.theme : 'light';
+      var switchToTheme = window.theme === 'light' ? 'dark' : 'light';
+      window.theme = switchToTheme;
+      document.querySelector('body').setAttribute('data-theme',switchToTheme);
+      }
+    </script>		
+		
+		
+		 
+
+
+
+
+<!--<link rel="stylesheet" type="text/css" href="components/com_timetable/assets/css/timetable.css">-->
+<!--<link rel="stylesheet" type="text/css" href="components/com_studentdashboard/assets/css/student.css">-->
+
+<!--<link type="text/css" href="components/com_studentdashboard/assets/thickbox/thickbox.css" rel="stylesheet">
+<script src="components/com_studentdashboard/assets/thickbox/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="components/com_studentdashboard/assets/thickbox/thickbox.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="components/com_studentdashboard/assets/css/dashboard.css">-->
+
+
+
+
+
+
+
+     <!--<table width="100%" cellspacing="0" cellpadding="0" valign="top">
+        <!--<tr><td class="hheading" valign="top">
+        
+        <h3 class="page-head-line">
+                        <table width="100%">
+                        <tr>
+                                <td width="95%" >Rolling Timetable</td>
+                                        <td width="5%" valign="bottom">
+                                        
+                                        </td>
+                        </tr>
+                        </table>
+</h3>
+
+               
+             </td>
+         </tr>
+         <tr>
+		<td width="100%" align="center" valign="top">                        
+                                                
+                                                
+                        
+                </td>
+                </tr>
+     </table>
+        <br /><br />-->
+        
+        
+        
+        
+    <div class="uk-grid uk-grid-stack" uk-grid="" uk-height-match="target: &gt; div &gt; .uk-card">
+      <div class="uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s cn-cie-grid uk-first-column">
+        <div class="uk-card uk-card-default uk-card-body cn-cie-stat">
+
+          <h3 class="uk-card-title">
+            CIE
+          </h3>
+          <div id="barPadding" class="bb" style="position: relative;"><svg style="overflow: hidden; display: block;" width="807.5999755859375" height="320"><defs><clipPath id="bb-1794486855135-clip"><rect width="765.5999755859375" height="266"></rect></clipPath><clipPath id="bb-1794486855135-clip-xaxis"><rect x="-41" y="-20" width="837.5999755859375" height="70"></rect></clipPath><clipPath id="bb-1794486855135-clip-yaxis"><rect x="-39" y="-4" width="60" height="290"></rect></clipPath><clipPath id="bb-1794486855135-clip-grid"><rect width="765.5999755859375" height="266"></rect></clipPath></defs><g transform="translate(40.5, 4.5)"><rect class="bb-zoom-rect" width="765.5999755859375" height="266" style="opacity: 0;"></rect><g clip-path="url(https://parents.nie.ac.in/index.php?ksign=v2%3AeIvvPkIRWZ874ZahOmKv9TLaFpzEl-aZmIZ5v8PtH6yzVqmk5ZyuQw7U_CuH4J3huWY1-wGP4cCTGcqNr7_6dAam5jayc0jFkVvNPizkKEXBURU8KQ9ZM49LyxD64vSJ5MJLa4kiTfYuRqiqnGqbbmv7MqC5UrJ80hf5jsGgFM4#bb-1794486855135-clip)" class="bb-regions" style="visibility: visible;"></g><g clip-path="url(https://parents.nie.ac.in/index.php?ksign=v2%3AeIvvPkIRWZ874ZahOmKv9TLaFpzEl-aZmIZ5v8PtH6yzVqmk5ZyuQw7U_CuH4J3huWY1-wGP4cCTGcqNr7_6dAam5jayc0jFkVvNPizkKEXBURU8KQ9ZM49LyxD64vSJ5MJLa4kiTfYuRqiqnGqbbmv7MqC5UrJ80hf5jsGgFM4#bb-1794486855135-clip-grid)" class="bb-grid" style="visibility: visible;"><g class="bb-xgrid-focus"><line class="bb-xgrid-focus" style="visibility: visible;" x1="383" x2="383" y2="266" y1="0"></line></g></g><g class="bb-chart" clip-path="url(https://parents.nie.ac.in/index.php?ksign=v2%3AeIvvPkIRWZ874ZahOmKv9TLaFpzEl-aZmIZ5v8PtH6yzVqmk5ZyuQw7U_CuH4J3huWY1-wGP4cCTGcqNr7_6dAam5jayc0jFkVvNPizkKEXBURU8KQ9ZM49LyxD64vSJ5MJLa4kiTfYuRqiqnGqbbmv7MqC5UrJ80hf5jsGgFM4#bb-1794486855135-clip)"><g class="bb-event-rects bb-event-rects-single" style="fill-opacity: 0;"><rect class=" bb-event-rect bb-event-rect-0" x="0" y="0" width="765.5999755859375" height="266"></rect></g><g class="bb-chart-bars"><g class="bb-chart-bar bb-target bb-target-BIS501" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS501 bb-bars bb-bars-BIS501" style="cursor: pointer;"><path class="bb-shape bb-shape-0 bb-bar bb-bar-0 _expanded_" style="fill: rgb(192, 169, 189); opacity: 1;" d="M85.70000000000005,266V48.07090909090909 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,-22.97999999999999H108.68000000000004 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,22.97999999999999V266z"></path></g></g><g class="bb-chart-bar bb-target bb-target-BIS502" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS502 bb-bars bb-bars-BIS502" style="cursor: pointer;"><path class="bb-shape bb-shape-0 bb-bar bb-bar-0 _expanded_" style="fill: rgb(148, 167, 174); opacity: 1;" d="M146.66000000000003,266V120.34363636363636 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,-22.97999999999999H169.64000000000001 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,22.97999999999999V266z"></path></g></g><g class="bb-chart-bar bb-target bb-target-BIS503" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS503 bb-bars bb-bars-BIS503" style="cursor: pointer;"><path class="bb-shape bb-shape-0 bb-bar bb-bar-0 _expanded_" style="fill: rgb(100, 118, 122); opacity: 1;" d="M207.62,266V168.52545454545455 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,-22.97999999999999H230.6 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,22.97999999999999V266z"></path></g></g><g class="bb-chart-bar bb-target bb-target-BIS505" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS505 bb-bars bb-bars-BIS505" style="cursor: pointer;"><path class="bb-shape bb-shape-0 bb-bar bb-bar-0 _expanded_" style="fill: rgb(179, 222, 229); opacity: 1;" d="M268.58000000000004,266V96.25272727272727 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,-22.97999999999999H291.56000000000006 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,22.97999999999999V266z"></path></g></g><g class="bb-chart-bar bb-target bb-target-BRMIS557" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BRMIS557 bb-bars bb-bars-BRMIS557" style="cursor: pointer;"><path class="bb-shape bb-shape-0 bb-bar bb-bar-0 _expanded_" style="fill: rgb(195, 203, 214); opacity: 1;" d="M329.54,266V60.11636363636363 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,-22.97999999999999H352.52 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,22.97999999999999V266z"></path></g></g><g class="bb-chart-bar bb-target bb-target-BISL504" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BISL504 bb-bars bb-bars-BISL504" style="cursor: pointer;"><path class="bb-shape bb-shape-0 bb-bar bb-bar-0 _expanded_" style="fill: rgb(116, 139, 111); opacity: 1;" d="M390.5,266V288.98 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,-22.97999999999999H413.48 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,22.97999999999999V266z"></path></g></g><g class="bb-chart-bar bb-target bb-target-BIS586" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS586 bb-bars bb-bars-BIS586" style="cursor: pointer;"><path class="bb-shape bb-shape-0 bb-bar bb-bar-0 _expanded_" style="fill: rgb(208, 86, 99); opacity: 1;" d="M451.46000000000004,266V288.98 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,-22.97999999999999H474.44000000000005 a22.97999999999999,22.97999999999999 0 0 1 22.97999999999999,22.97999999999999V266z"></path></g></g><g class="bb-chart-bar bb-target bb-target-BESK508" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BESK508 bb-bars bb-bars-BESK508" style="cursor: pointer;"><path class="bb-shape bb-shape-0 bb-bar bb-bar-0 _expanded_" style="fill: rgb(229, 149, 96); opacity: 1;" d="M512.42,266V288.98 a22.980000000000018,22.980000000000018 0 0 1 22.980000000000018,-22.980000000000018H535.4 a22.980000000000018,22.980000000000018 0 0 1 22.980000000000018,22.980000000000018V266z"></path></g></g><g class="bb-chart-bar bb-target bb-target-BPEK559" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BPEK559 bb-bars bb-bars-BPEK559" style="cursor: pointer;"><path class="bb-shape bb-shape-0 bb-bar bb-bar-0 _expanded_" style="fill: rgb(100, 114, 149); opacity: 1;" d="M573.38,266V288.98 a22.980000000000018,22.980000000000018 0 0 1 22.980000000000018,-22.980000000000018H596.36 a22.980000000000018,22.980000000000018 0 0 1 22.980000000000018,22.980000000000018V266z"></path></g></g><g class="bb-chart-bar bb-target bb-target-BIS516B" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS516B bb-bars bb-bars-BIS516B" style="cursor: pointer;"><path class="bb-shape bb-shape-0 bb-bar bb-bar-0 _expanded_" style="fill: rgb(159, 73, 110); opacity: 1;" d="M634.3399999999999,266V96.2527272727273 a22.980000000000018,22.980000000000018 0 0 1 22.980000000000018,-22.980000000000018H657.3199999999999 a22.980000000000018,22.980000000000018 0 0 1 22.980000000000018,22.980000000000018V266z"></path></g></g></g><g class="bb-chart-lines"><g class="bb-chart-line bb-target bb-target-BIS501" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS501 bb-lines bb-lines-BIS501"></g><g class=" bb-shapes bb-shapes-BIS501 bb-areas bb-areas-BIS501"></g><g class=" bb-shapes bb-shapes-BIS501 bb-circles bb-circles-BIS501" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BIS502" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS502 bb-lines bb-lines-BIS502"></g><g class=" bb-shapes bb-shapes-BIS502 bb-areas bb-areas-BIS502"></g><g class=" bb-shapes bb-shapes-BIS502 bb-circles bb-circles-BIS502" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BIS503" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS503 bb-lines bb-lines-BIS503"></g><g class=" bb-shapes bb-shapes-BIS503 bb-areas bb-areas-BIS503"></g><g class=" bb-shapes bb-shapes-BIS503 bb-circles bb-circles-BIS503" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BIS505" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS505 bb-lines bb-lines-BIS505"></g><g class=" bb-shapes bb-shapes-BIS505 bb-areas bb-areas-BIS505"></g><g class=" bb-shapes bb-shapes-BIS505 bb-circles bb-circles-BIS505" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BRMIS557" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BRMIS557 bb-lines bb-lines-BRMIS557"></g><g class=" bb-shapes bb-shapes-BRMIS557 bb-areas bb-areas-BRMIS557"></g><g class=" bb-shapes bb-shapes-BRMIS557 bb-circles bb-circles-BRMIS557" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BISL504" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BISL504 bb-lines bb-lines-BISL504"></g><g class=" bb-shapes bb-shapes-BISL504 bb-areas bb-areas-BISL504"></g><g class=" bb-shapes bb-shapes-BISL504 bb-circles bb-circles-BISL504" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BIS586" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS586 bb-lines bb-lines-BIS586"></g><g class=" bb-shapes bb-shapes-BIS586 bb-areas bb-areas-BIS586"></g><g class=" bb-shapes bb-shapes-BIS586 bb-circles bb-circles-BIS586" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BESK508" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BESK508 bb-lines bb-lines-BESK508"></g><g class=" bb-shapes bb-shapes-BESK508 bb-areas bb-areas-BESK508"></g><g class=" bb-shapes bb-shapes-BESK508 bb-circles bb-circles-BESK508" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BPEK559" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BPEK559 bb-lines bb-lines-BPEK559"></g><g class=" bb-shapes bb-shapes-BPEK559 bb-areas bb-areas-BPEK559"></g><g class=" bb-shapes bb-shapes-BPEK559 bb-circles bb-circles-BPEK559" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BIS516B" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS516B bb-lines bb-lines-BIS516B"></g><g class=" bb-shapes bb-shapes-BIS516B bb-areas bb-areas-BIS516B"></g><g class=" bb-shapes bb-shapes-BIS516B bb-circles bb-circles-BIS516B" style="cursor: pointer;"></g></g></g><g class="bb-chart-arcs" transform="translate(382.79998779296875, 128)"></g></g><g class="bb-axis bb-axis-x" clip-path="url(https://parents.nie.ac.in/index.php?ksign=v2%3AeIvvPkIRWZ874ZahOmKv9TLaFpzEl-aZmIZ5v8PtH6yzVqmk5ZyuQw7U_CuH4J3huWY1-wGP4cCTGcqNr7_6dAam5jayc0jFkVvNPizkKEXBURU8KQ9ZM49LyxD64vSJ5MJLa4kiTfYuRqiqnGqbbmv7MqC5UrJ80hf5jsGgFM4#bb-1794486855135-clip-xaxis)" transform="translate(0, 266)" style="visibility: visible; opacity: 1;"><text class="bb-axis-x-label" style="text-anchor: end;" x="765.5999755859375" dx="-0.5em" dy="-0.5em"></text><g class="tick" style="opacity: 1;" transform="translate(383,0)"><line x2="0" x1="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle; display: block;"><tspan x="0" dx="0" dy=".71em">0</tspan></text></g><path class="domain" d="M0,6V0H765.5999755859375V6"></path></g><g class="bb-axis bb-axis-y" transform="translate(0, 0)" style="visibility: visible; opacity: 1;"><text class="bb-axis-y-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="1.2em"></text><g class="tick" style="opacity: 1;" transform="translate(0,266)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">0</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,242)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">2</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,218)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">4</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,194)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">6</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,170)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">8</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,146)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">10</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,122)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">12</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,98)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">14</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,74)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">16</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,50)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">18</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,26)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">20</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,1)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">22</tspan></text></g><path class="domain" d="M-6,1H0V266H-6"></path></g></g><g transform="translate(0, 300)"><g class="bb-legend-item bb-legend-item-BIS501" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="80.9749984741211" y="9">BIS501</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="66.9749984741211" y="-5" width="62.98333740234375" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(192, 169, 189); pointer-events: none;" x1="64.9749984741211" y1="4" x2="74.9749984741211" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BIS502" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="143.95833587646484" y="9">BIS502</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="129.95833587646484" y="-5" width="62.98333740234375" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(148, 167, 174); pointer-events: none;" x1="127.95833587646484" y1="4" x2="137.95833587646484" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BIS503" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="206.9416732788086" y="9">BIS503</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="192.9416732788086" y="-5" width="62.98333740234375" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(100, 118, 122); pointer-events: none;" x1="190.9416732788086" y1="4" x2="200.9416732788086" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BIS505" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="269.92501068115234" y="9">BIS505</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="255.92501068115234" y="-5" width="62.98333740234375" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(179, 222, 229); pointer-events: none;" x1="253.92501068115234" y1="4" x2="263.92501068115234" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BRMIS557" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="332.9083480834961" y="9">BRMIS557</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="318.9083480834961" y="-5" width="80.09999084472656" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(195, 203, 214); pointer-events: none;" x1="316.9083480834961" y1="4" x2="326.9083480834961" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BISL504" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="413.00833892822266" y="9">BISL504</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="399.00833892822266" y="-5" width="69.09999084472656" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(116, 139, 111); pointer-events: none;" x1="397.00833892822266" y1="4" x2="407.00833892822266" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BIS586" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="482.1083297729492" y="9">BIS586</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="468.1083297729492" y="-5" width="62.98333740234375" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(208, 86, 99); pointer-events: none;" x1="466.1083297729492" y1="4" x2="476.1083297729492" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BESK508" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="545.091667175293" y="9">BESK508</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="531.091667175293" y="-5" width="74.59999084472656" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(229, 149, 96); pointer-events: none;" x1="529.091667175293" y1="4" x2="539.091667175293" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BPEK559" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="619.6916580200195" y="9">BPEK559</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="605.6916580200195" y="-5" width="74.59999084472656" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(100, 114, 149); pointer-events: none;" x1="603.6916580200195" y1="4" x2="613.6916580200195" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BIS516B" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="694.2916488647461" y="9">BIS516B</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="680.2916488647461" y="-5" width="60.33332824707031" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(159, 73, 110); pointer-events: none;" x1="678.2916488647461" y1="4" x2="688.2916488647461" y2="4" stroke-width="10"></line></g></g></svg><div class="bb-tooltip-container" style="position: absolute; pointer-events: none; top: 0px; left: 445.517px;"><table class="bb-tooltip"><tbody><tr><th colspan="2">0</th></tr><tr class="bb-tooltip-name-BIS501"><td class="name"><span style="background-color:#C0A9BD"></span>BIS501</td><td class="value">20</td></tr><tr class="bb-tooltip-name-BIS502"><td class="name"><span style="background-color:#94A7AE"></span>BIS502</td><td class="value">14</td></tr><tr class="bb-tooltip-name-BIS503"><td class="name"><span style="background-color:#64767A"></span>BIS503</td><td class="value">10</td></tr><tr class="bb-tooltip-name-BIS505"><td class="name"><span style="background-color:#B3DEE5"></span>BIS505</td><td class="value">16</td></tr><tr class="bb-tooltip-name-BRMIS557"><td class="name"><span style="background-color:#C3CBD6"></span>BRMIS557</td><td class="value">19</td></tr><tr class="bb-tooltip-name-BISL504"><td class="name"><span style="background-color:#748B6F"></span>BISL504</td><td class="value">0</td></tr><tr class="bb-tooltip-name-BIS586"><td class="name"><span style="background-color:#D05663"></span>BIS586</td><td class="value">0</td></tr><tr class="bb-tooltip-name-BESK508"><td class="name"><span style="background-color:#E59560"></span>BESK508</td><td class="value">0</td></tr><tr class="bb-tooltip-name-BPEK559"><td class="name"><span style="background-color:#647295"></span>BPEK559</td><td class="value">0</td></tr><tr class="bb-tooltip-name-BIS516B"><td class="name"><span style="background-color:#9F496E"></span>BIS516B</td><td class="value">16</td></tr></tbody></table></div></div>
+          <script>
+            var chart = bb.generate({
+              data: {
+                columns: [["BIS501",20],["BIS502",14],["BIS503",10],["BIS505",16],["BRMIS557",19],["BISL504",0],["BIS586",0],["BESK508",0],["BPEK559",0],["BIS516B",16],,],
+                type: "bar"
+              },
+
+              bar: {
+                radius: {
+                  ratio: 0.5
+                },
+                padding: 15
+              },
+
+              bindto: "#barPadding"
+            });
+          </script>
+        </div>
+      </div>
+          <div class="uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s cn-cie-grid uk-grid-margin uk-first-column">
+        <div class="uk-card uk-card-default uk-card-body cn-cie-stat cn-att-stat">
+          <div class="uk-flex uk-flex-middle">
+            <h3 class="uk-card-title">
+              Attendance
+            </h3>
+            <div class="cn-legend cn-att-legend">
+              <span class="uk-label cn-attend cn-color-red" style="    overflow-wrap: anywhere;">5 below 85% (<span>BIS501</span>, <span>BIS503</span>, <span>BISL504</span>, <span>BIS586</span>, BESK508)</span>
+            </div>
+
+            <!-- <div style="float:right;" class = "mainheading" style="margin-top: 20px;">
+     <span style="margin-left: 50px    ">Click <a href="manuals/Bucket configuration KLESCET-2-converted.pdf" style="color: red; font-weight:bold; text-decoration: underline;">HELP</a>  link for Bucket configuration user manual
+     </span></div> -->
+          </div>
+          <!-- <div class="cn-legend cn-att-legend">
+               chinnayya 
+                </div> -->
+
+          <div id="gaugeTypeMulti" class="bb" style="position: relative;"><svg style="overflow: hidden; display: block;" width="807.5999755859375" height="300"><defs><clipPath id="bb-1794486855239-clip"><rect width="807.5999755859375" height="276"></rect></clipPath><clipPath id="bb-1794486855239-clip-xaxis"><rect x="-31" y="-20" width="869.5999755859375" height="40"></rect></clipPath><clipPath id="bb-1794486855239-clip-yaxis"><rect x="-29" y="-4" width="20" height="300"></rect></clipPath><clipPath id="bb-1794486855239-clip-grid"><rect width="807.5999755859375" height="276"></rect></clipPath></defs><g transform="translate(0.5, 4.5)"><rect class="bb-zoom-rect" width="807.5999755859375" height="276" style="opacity: 0;"></rect><g clip-path="url(https://parents.nie.ac.in/index.php?ksign=v2%3AeIvvPkIRWZ874ZahOmKv9TLaFpzEl-aZmIZ5v8PtH6yzVqmk5ZyuQw7U_CuH4J3huWY1-wGP4cCTGcqNr7_6dAam5jayc0jFkVvNPizkKEXBURU8KQ9ZM49LyxD64vSJ5MJLa4kiTfYuRqiqnGqbbmv7MqC5UrJ80hf5jsGgFM4#bb-1794486855239-clip)" class="bb-regions" style="visibility: hidden;"></g><g clip-path="url(https://parents.nie.ac.in/index.php?ksign=v2%3AeIvvPkIRWZ874ZahOmKv9TLaFpzEl-aZmIZ5v8PtH6yzVqmk5ZyuQw7U_CuH4J3huWY1-wGP4cCTGcqNr7_6dAam5jayc0jFkVvNPizkKEXBURU8KQ9ZM49LyxD64vSJ5MJLa4kiTfYuRqiqnGqbbmv7MqC5UrJ80hf5jsGgFM4#bb-1794486855239-clip-grid)" class="bb-grid" style="visibility: hidden;"><g class="bb-xgrid-focus"><line class="bb-xgrid-focus" style="visibility: hidden;"></line></g></g><g class="bb-chart" clip-path="url(https://parents.nie.ac.in/index.php?ksign=v2%3AeIvvPkIRWZ874ZahOmKv9TLaFpzEl-aZmIZ5v8PtH6yzVqmk5ZyuQw7U_CuH4J3huWY1-wGP4cCTGcqNr7_6dAam5jayc0jFkVvNPizkKEXBURU8KQ9ZM49LyxD64vSJ5MJLa4kiTfYuRqiqnGqbbmv7MqC5UrJ80hf5jsGgFM4#bb-1794486855239-clip)"><g class="bb-event-rects bb-event-rects-single" style="fill-opacity: 0;"><rect class=" bb-event-rect bb-event-rect-0" x="0" y="0" width="807.5999755859375" height="276"></rect></g><g class="bb-chart-bars"><g class="bb-chart-bar bb-target bb-target-BIS501" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS501 bb-bars bb-bars-BIS501" style="cursor: pointer;"></g></g><g class="bb-chart-bar bb-target bb-target-BIS502" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS502 bb-bars bb-bars-BIS502" style="cursor: pointer;"></g></g><g class="bb-chart-bar bb-target bb-target-BIS503" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS503 bb-bars bb-bars-BIS503" style="cursor: pointer;"></g></g><g class="bb-chart-bar bb-target bb-target-BIS505" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS505 bb-bars bb-bars-BIS505" style="cursor: pointer;"></g></g><g class="bb-chart-bar bb-target bb-target-BRMIS557" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BRMIS557 bb-bars bb-bars-BRMIS557" style="cursor: pointer;"></g></g><g class="bb-chart-bar bb-target bb-target-BISL504" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BISL504 bb-bars bb-bars-BISL504" style="cursor: pointer;"></g></g><g class="bb-chart-bar bb-target bb-target-BIS586" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS586 bb-bars bb-bars-BIS586" style="cursor: pointer;"></g></g><g class="bb-chart-bar bb-target bb-target-BESK508" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BESK508 bb-bars bb-bars-BESK508" style="cursor: pointer;"></g></g><g class="bb-chart-bar bb-target bb-target-BPEK559" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BPEK559 bb-bars bb-bars-BPEK559" style="cursor: pointer;"></g></g><g class="bb-chart-bar bb-target bb-target-BIS516B" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS516B bb-bars bb-bars-BIS516B" style="cursor: pointer;"></g></g></g><g class="bb-chart-lines"><g class="bb-chart-line bb-target bb-target-BIS501" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS501 bb-lines bb-lines-BIS501"></g><g class=" bb-shapes bb-shapes-BIS501 bb-areas bb-areas-BIS501"></g><g class=" bb-shapes bb-shapes-BIS501 bb-circles bb-circles-BIS501" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BIS502" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS502 bb-lines bb-lines-BIS502"></g><g class=" bb-shapes bb-shapes-BIS502 bb-areas bb-areas-BIS502"></g><g class=" bb-shapes bb-shapes-BIS502 bb-circles bb-circles-BIS502" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BIS503" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS503 bb-lines bb-lines-BIS503"></g><g class=" bb-shapes bb-shapes-BIS503 bb-areas bb-areas-BIS503"></g><g class=" bb-shapes bb-shapes-BIS503 bb-circles bb-circles-BIS503" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BIS505" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS505 bb-lines bb-lines-BIS505"></g><g class=" bb-shapes bb-shapes-BIS505 bb-areas bb-areas-BIS505"></g><g class=" bb-shapes bb-shapes-BIS505 bb-circles bb-circles-BIS505" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BRMIS557" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BRMIS557 bb-lines bb-lines-BRMIS557"></g><g class=" bb-shapes bb-shapes-BRMIS557 bb-areas bb-areas-BRMIS557"></g><g class=" bb-shapes bb-shapes-BRMIS557 bb-circles bb-circles-BRMIS557" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BISL504" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BISL504 bb-lines bb-lines-BISL504"></g><g class=" bb-shapes bb-shapes-BISL504 bb-areas bb-areas-BISL504"></g><g class=" bb-shapes bb-shapes-BISL504 bb-circles bb-circles-BISL504" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BIS586" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS586 bb-lines bb-lines-BIS586"></g><g class=" bb-shapes bb-shapes-BIS586 bb-areas bb-areas-BIS586"></g><g class=" bb-shapes bb-shapes-BIS586 bb-circles bb-circles-BIS586" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BESK508" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BESK508 bb-lines bb-lines-BESK508"></g><g class=" bb-shapes bb-shapes-BESK508 bb-areas bb-areas-BESK508"></g><g class=" bb-shapes bb-shapes-BESK508 bb-circles bb-circles-BESK508" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BPEK559" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BPEK559 bb-lines bb-lines-BPEK559"></g><g class=" bb-shapes bb-shapes-BPEK559 bb-areas bb-areas-BPEK559"></g><g class=" bb-shapes bb-shapes-BPEK559 bb-circles bb-circles-BPEK559" style="cursor: pointer;"></g></g><g class="bb-chart-line bb-target bb-target-BIS516B" style="opacity: 1; pointer-events: none;"><g class=" bb-shapes bb-shapes-BIS516B bb-lines bb-lines-BIS516B"></g><g class=" bb-shapes bb-shapes-BIS516B bb-areas bb-areas-BIS516B"></g><g class=" bb-shapes bb-shapes-BIS516B bb-circles bb-circles-BIS516B" style="cursor: pointer;"></g></g></g><g class="bb-chart-arcs" transform="translate(403.79998779296875, 261)"><g class="bb-chart-arcs-background"><path class="bb-chart-arcs-background bb-chart-arcs-background-0" d="M-210.7575,-2.581034977712983e-14A210.7575,210.7575,0,1,1,210.7575,0L203.2962,0A203.2962,203.2962,0,1,0,-203.2962,-2.4896604060882015e-14Z"></path><path class="bb-chart-arcs-background bb-chart-arcs-background-1" d="M-203.2962,-2.4896604060882015e-14A203.2962,203.2962,0,1,1,203.2962,0L195.83489999999998,0A195.83489999999998,195.83489999999998,0,1,0,-195.83489999999998,-2.3982858344634197e-14Z"></path><path class="bb-chart-arcs-background bb-chart-arcs-background-2" d="M-195.83489999999998,-2.3982858344634197e-14A195.83489999999998,195.83489999999998,0,1,1,195.83489999999998,0L188.37359999999998,0A188.37359999999998,188.37359999999998,0,1,0,-188.37359999999998,-2.3069112628386382e-14Z"></path><path class="bb-chart-arcs-background bb-chart-arcs-background-3" d="M-188.37359999999998,-2.3069112628386382e-14A188.37359999999998,188.37359999999998,0,1,1,188.37359999999998,0L180.9123,0A180.9123,180.9123,0,1,0,-180.9123,-2.215536691213857e-14Z"></path><path class="bb-chart-arcs-background bb-chart-arcs-background-4" d="M-180.9123,-2.215536691213857e-14A180.9123,180.9123,0,1,1,180.9123,0L173.45099999999996,0A173.45099999999996,173.45099999999996,0,1,0,-173.45099999999996,-2.1241621195890752e-14Z"></path><path class="bb-chart-arcs-background bb-chart-arcs-background-5" d="M-173.45099999999996,-2.1241621195890752e-14A173.45099999999996,173.45099999999996,0,1,1,173.45099999999996,0L165.98969999999997,0A165.98969999999997,165.98969999999997,0,1,0,-165.98969999999997,-2.0327875479642937e-14Z"></path><path class="bb-chart-arcs-background bb-chart-arcs-background-6" d="M-165.98969999999997,-2.0327875479642937e-14A165.98969999999997,165.98969999999997,0,1,1,165.98969999999997,0L158.52839999999998,0A158.52839999999998,158.52839999999998,0,1,0,-158.52839999999998,-1.9414129763395125e-14Z"></path><path class="bb-chart-arcs-background bb-chart-arcs-background-7" d="M-158.52839999999998,-1.9414129763395125e-14A158.52839999999998,158.52839999999998,0,1,1,158.52839999999998,0L151.06709999999998,0A151.06709999999998,151.06709999999998,0,1,0,-151.06709999999998,-1.850038404714731e-14Z"></path><path class="bb-chart-arcs-background bb-chart-arcs-background-8" d="M-151.06709999999998,-1.850038404714731e-14A151.06709999999998,151.06709999999998,0,1,1,151.06709999999998,0L143.60579999999996,0A143.60579999999996,143.60579999999996,0,1,0,-143.60579999999996,-1.7586638330899492e-14Z"></path><path class="bb-chart-arcs-background bb-chart-arcs-background-9" d="M-143.60579999999996,-1.7586638330899492e-14A143.60579999999996,143.60579999999996,0,1,1,143.60579999999996,0L136.14449999999997,0A136.14449999999997,136.14449999999997,0,1,0,-136.14449999999997,-1.6672892614651677e-14Z"></path></g><text class="bb-chart-arcs-gauge-min" style="text-anchor: middle; pointer-events: none;" dx="-168.606px" dy="1.2em">0</text><text class="bb-chart-arcs-gauge-max" style="text-anchor: middle; pointer-events: none;" dx="168.606px" dy="1.2em">100</text><g class="bb-chart-arc bb-target bb-target-BIS501"><g class=" bb-shapes bb-shapes-BIS501 bb-arcs bb-arcs-BIS501"><path class=" bb-shape bb-shape bb-arc bb-arc-BIS501" style="fill: rgb(192, 169, 189); cursor: pointer; opacity: 1;" transform="" d="M-210.7575,-2.581034977712983e-14A210.7575,210.7575,0,0,1,170.50639919197798,-123.8801503100309L164.47008069184818,-119.49450820710108A203.2962,203.2962,0,0,0,-203.2962,-2.4896604060882015e-14Z"></path><rect class="bb-arc-label-line bb-target bb-target-BIS501" style="fill: rgb(192, 169, 189); stroke-dasharray: 0px, 20.5538px, 0px;" x="163.8803080644697" y="-120.30207630433694" width="18.553800000000003" height="2" transform="rotate(-36, 163.8803080644697, -120.30207630433694)"></rect></g><text dy="-0.1em" style="opacity: 1; text-anchor: middle; pointer-events: none;" class="bb-gauge-value" transform="translate(199.70584506145576,-132.762021977347)">80.0%</text></g><g class="bb-chart-arc bb-target bb-target-BIS502"><g class=" bb-shapes bb-shapes-BIS502 bb-arcs bb-arcs-BIS502"><path class=" bb-shape bb-shape bb-arc bb-arc-BIS502" style="fill: rgb(148, 167, 174); cursor: pointer; opacity: 1;" transform="" d="M-203.2962,-2.4896604060882015e-14A203.2962,203.2962,0,0,1,191.27748498147204,-68.86413198177077L184.25729130007386,-66.33670673744457A195.83489999999998,195.83489999999998,0,0,0,-195.83489999999998,-2.3982858344634197e-14Z"></path><rect class="bb-arc-label-line bb-target bb-target-BIS502" style="fill: rgb(148, 167, 174); stroke-dasharray: 0px, 28.0151px, 0px;" x="183.91615262757574" y="-67.27671856355846" width="26.015100000000007" height="2" transform="rotate(-19.79999999999999, 183.91615262757574, -67.27671856355846)"></rect></g><text dy="-0.1em" style="opacity: 1; text-anchor: middle; pointer-events: none;" class="bb-gauge-value" transform="translate(232.25641781635056,-76.08264262397617)">89.0%</text></g><g class="bb-chart-arc bb-target bb-target-BIS503"><g class=" bb-shapes bb-shapes-BIS503 bb-arcs bb-arcs-BIS503"><path class=" bb-shape bb-shape bb-arc bb-arc-BIS503" style="fill: rgb(100, 118, 122); cursor: pointer; opacity: 1;" transform="" d="M-195.83489999999998,-2.3982858344634197e-14A195.83489999999998,195.83489999999998,0,0,1,158.4337621917184,-115.10886610417123L152.3974436915886,-110.7232240012414A188.37359999999998,188.37359999999998,0,0,0,-188.37359999999998,-2.3069112628386382e-14Z"></path><rect class="bb-arc-label-line bb-target bb-target-BIS503" style="fill: rgb(100, 118, 122); stroke-dasharray: 0px, 35.4764px, 0px;" x="151.8075138314784" y="-111.53067704118668" width="33.47640000000001" height="2" transform="rotate(-36, 151.8075138314784, -111.53067704118668)"></rect></g><text dy="-0.1em" style="opacity: 1; text-anchor: middle; pointer-events: none;" class="bb-gauge-value" transform="translate(199.70584506145576,-132.762021977347)">80.0%</text></g><g class="bb-chart-arc bb-target bb-target-BIS505"><g class=" bb-shapes bb-shapes-BIS505 bb-arcs bb-arcs-BIS505"><path class=" bb-shape bb-shape bb-arc bb-arc-BIS505" style="fill: rgb(179, 222, 229); cursor: pointer; opacity: 1;" transform="" d="M-188.37359999999998,-2.3069112628386382e-14A188.37359999999998,188.37359999999998,0,0,1,177.23709761867568,-63.809281493118384L170.21690393727752,-61.28185624879219A180.9123,180.9123,0,0,0,-180.9123,-2.215536691213857e-14Z"></path><rect class="bb-arc-label-line bb-target bb-target-BIS505" style="fill: rgb(179, 222, 229); stroke-dasharray: 0px, 42.9377px, 0px;" x="169.8755673704915" y="-62.22179603518047" width="40.937700000000014" height="2" transform="rotate(-19.79999999999999, 169.8755673704915, -62.22179603518047)"></rect></g><text dy="-0.1em" style="opacity: 1; text-anchor: middle; pointer-events: none;" class="bb-gauge-value" transform="translate(232.25641781635056,-76.08264262397617)">89.0%</text></g><g class="bb-chart-arc bb-target bb-target-BRMIS557"><g class=" bb-shapes bb-shapes-BRMIS557 bb-arcs bb-arcs-BRMIS557"><path class=" bb-shape bb-shape bb-arc bb-arc-BRMIS557" style="fill: rgb(195, 203, 214); cursor: pointer; opacity: 1;" transform="" d="M-180.9123,-2.215536691213857e-14A180.9123,180.9123,0,0,1,170.21690393727752,-61.28185624879219L163.19671025587934,-58.75443100446599A173.45099999999996,173.45099999999996,0,0,0,-173.45099999999996,-2.1241621195890752e-14Z"></path><rect class="bb-arc-label-line bb-target bb-target-BRMIS557" style="fill: rgb(195, 203, 214); stroke-dasharray: 0px, 50.399px, 0px;" x="162.85526198173952" y="-59.69433009808366" width="48.399000000000015" height="2" transform="rotate(-19.79999999999999, 162.85526198173952, -59.69433009808366)"></rect></g><text dy="-0.1em" style="opacity: 1; text-anchor: middle; pointer-events: none;" class="bb-gauge-value" transform="translate(232.25641781635056,-76.08264262397617)">89.0%</text></g><g class="bb-chart-arc bb-target bb-target-BISL504"><g class=" bb-shapes bb-shapes-BISL504 bb-arcs bb-arcs-BISL504"><path class=" bb-shape bb-shape bb-arc bb-arc-BISL504" style="fill: rgb(116, 139, 111); cursor: pointer; opacity: 1;" transform="" d="M-173.45099999999996,-2.1241621195890752e-14A173.45099999999996,173.45099999999996,0,0,1,122.64837830358783,-122.64837830358783L117.37244247712066,-117.37244247712066A165.98969999999997,165.98969999999997,0,0,0,-165.98969999999997,-2.0327875479642937e-14Z"></path><rect class="bb-arc-label-line bb-target bb-target-BISL504" style="fill: rgb(116, 139, 111); stroke-dasharray: 0px, 57.8603px, 0px;" x="116.66321000782254" y="-118.07741501557649" width="55.860300000000024" height="2" transform="rotate(-45, 116.66321000782254, -118.07741501557649)"></rect></g><text dy="-0.1em" style="opacity: 1; text-anchor: middle; pointer-events: none;" class="bb-gauge-value" transform="translate(174.54930893589926,-159.4782411240338)">75.0%</text></g><g class="bb-chart-arc bb-target bb-target-BIS586"><g class=" bb-shapes bb-shapes-BIS586 bb-arcs bb-arcs-BIS586"><path class=" bb-shape bb-shape bb-arc bb-arc-BIS586" style="fill: rgb(208, 86, 99); cursor: pointer; opacity: 1;" transform="" d="M-165.98969999999997,-2.0327875479642937e-14L-158.52839999999998,-1.9414129763395125e-14Z"></path><rect class="bb-arc-label-line bb-target bb-target-BIS586" style="fill: rgb(208, 86, 99); stroke-dasharray: 0px, 65.3216px, 0px;" x="-158.52524600146066" y="0.9999933681646678" width="63.321600000000025" height="2" transform="rotate(-180, -158.52524600146066, 0.9999933681646678)"></rect></g><text dy="-0.1em" style="opacity: 1; text-anchor: middle; pointer-events: none;" class="bb-gauge-value" transform="translate(-246.85,2.999999999999971)">0.0%</text></g><g class="bb-chart-arc bb-target bb-target-BESK508"><g class=" bb-shapes bb-shapes-BESK508 bb-arcs bb-arcs-BESK508"><path class=" bb-shape bb-shape bb-arc bb-arc-BESK508" style="fill: rgb(229, 149, 96); cursor: pointer; opacity: 1;" transform="" d="M-158.52839999999998,-1.9414129763395125e-14L-151.06709999999998,-1.850038404714731e-14Z"></path><rect class="bb-arc-label-line bb-target bb-target-BESK508" style="fill: rgb(229, 149, 96); stroke-dasharray: 0px, 72.7829px, 0px;" x="-151.06379022458086" y="0.9999926968870753" width="70.78290000000003" height="2" transform="rotate(-180, -151.06379022458086, 0.9999926968870753)"></rect></g><text dy="-0.1em" style="opacity: 1; text-anchor: middle; pointer-events: none;" class="bb-gauge-value" transform="translate(-246.85,2.999999999999971)">0.0%</text></g><g class="bb-chart-arc bb-target bb-target-BPEK559"><g class=" bb-shapes bb-shapes-BPEK559 bb-arcs bb-arcs-BPEK559"><path class=" bb-shape bb-shape bb-arc bb-arc-BPEK559" style="fill: rgb(100, 114, 149); cursor: pointer; opacity: 1;" transform="" d="M-151.06709999999998,-1.850038404714731e-14A151.06709999999998,151.06709999999998,0,1,1,151.06709999999998,6.708726907334039e-14L143.60579999999996,6.37737862518861e-14A143.60579999999996,143.60579999999996,0,1,0,-143.60579999999996,-1.7586638330899492e-14Z"></path><rect class="bb-arc-label-line bb-target bb-target-BPEK559" style="fill: rgb(100, 114, 149); stroke-dasharray: 0px, 80.2442px, 0px;" x="143.60231826054675" y="-0.9999919182811363" width="78.24420000000003" height="2" transform="rotate(2.5444437451708134e-14, 143.60231826054675, -0.9999919182811363)"></rect></g><text dy="-0.1em" style="opacity: 1; text-anchor: middle; pointer-events: none;" class="bb-gauge-value" transform="translate(246.85,3.0000000000001052)">100.0%</text></g><g class="bb-chart-arc bb-target bb-target-BIS516B"><g class=" bb-shapes bb-shapes-BIS516B bb-arcs bb-arcs-BIS516B"><path class=" bb-shape bb-shape bb-arc bb-arc-BIS516B" style="fill: rgb(159, 73, 110); cursor: pointer; opacity: 1;" transform="" d="M-143.60579999999996,-1.7586638330899492e-14A143.60579999999996,143.60579999999996,0,0,1,133.52129607717103,-52.86482088792526L126.58395478301303,-50.118133162979085A136.14449999999997,136.14449999999997,0,0,0,-136.14449999999997,-1.6672892614651677e-14Z"></path><rect class="bb-arc-label-line bb-target bb-target-BIS516B" style="fill: rgb(159, 73, 110); stroke-dasharray: 0px, 87.7055px, 0px;" x="126.21241888796892" y="-51.04654933193679" width="85.70550000000003" height="2" transform="rotate(-21.599999999999977, 126.21241888796892, -51.04654933193679)"></rect></g><text dy="-0.1em" style="opacity: 1; text-anchor: middle; pointer-events: none;" class="bb-gauge-value" transform="translate(229.5153255415149,-82.83514344047296)">88.0%</text></g></g></g><g class="bb-axis bb-axis-x" clip-path="url(https://parents.nie.ac.in/index.php?ksign=v2%3AeIvvPkIRWZ874ZahOmKv9TLaFpzEl-aZmIZ5v8PtH6yzVqmk5ZyuQw7U_CuH4J3huWY1-wGP4cCTGcqNr7_6dAam5jayc0jFkVvNPizkKEXBURU8KQ9ZM49LyxD64vSJ5MJLa4kiTfYuRqiqnGqbbmv7MqC5UrJ80hf5jsGgFM4#bb-1794486855239-clip-xaxis)" transform="translate(0, 276)" style="visibility: visible; opacity: 0;"><text class="bb-axis-x-label" style="text-anchor: end;" x="807.5999755859375" dx="-0.5em" dy="-0.5em"></text><g class="tick" style="opacity: 1;" transform="translate(404,0)"><line x2="0" x1="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle; display: block;"><tspan x="0" dx="0" dy=".71em">0</tspan></text></g><path class="domain" d="M0,6V0H807.5999755859375V6"></path></g><g class="bb-axis bb-axis-y" transform="translate(0, 0)" style="visibility: visible; opacity: 0;"><text class="bb-axis-y-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="1.2em"></text><g class="tick" style="opacity: 1;" transform="translate(0,231)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">10%</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,208)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">20%</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,185)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">30%</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,162)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">40%</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,139)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">50%</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,116)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">60%</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,93)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">70%</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,70)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">80%</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,47)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">90%</tspan></text></g><g class="tick" style="opacity: 1;" transform="translate(0,24)"><line x2="-6" y1="0" y2="0"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dx="0" dy="3">100%</tspan></text></g><path class="domain" d="M-6,1H0V276H-6"></path></g></g><g transform="translate(0, 290)"><g class="bb-legend-item bb-legend-item-BIS501" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="80.9749984741211" y="9">BIS501</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="66.9749984741211" y="-5" width="62.98333740234375" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(192, 169, 189); pointer-events: none;" x1="64.9749984741211" y1="4" x2="74.9749984741211" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BIS502" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="143.95833587646484" y="9">BIS502</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="129.95833587646484" y="-5" width="62.98333740234375" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(148, 167, 174); pointer-events: none;" x1="127.95833587646484" y1="4" x2="137.95833587646484" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BIS503" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="206.9416732788086" y="9">BIS503</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="192.9416732788086" y="-5" width="62.98333740234375" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(100, 118, 122); pointer-events: none;" x1="190.9416732788086" y1="4" x2="200.9416732788086" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BIS505" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="269.92501068115234" y="9">BIS505</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="255.92501068115234" y="-5" width="62.98333740234375" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(179, 222, 229); pointer-events: none;" x1="253.92501068115234" y1="4" x2="263.92501068115234" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BRMIS557" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="332.9083480834961" y="9">BRMIS557</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="318.9083480834961" y="-5" width="80.09999084472656" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(195, 203, 214); pointer-events: none;" x1="316.9083480834961" y1="4" x2="326.9083480834961" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BISL504" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="413.00833892822266" y="9">BISL504</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="399.00833892822266" y="-5" width="69.09999084472656" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(116, 139, 111); pointer-events: none;" x1="397.00833892822266" y1="4" x2="407.00833892822266" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BIS586" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="482.1083297729492" y="9">BIS586</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="468.1083297729492" y="-5" width="62.98333740234375" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(208, 86, 99); pointer-events: none;" x1="466.1083297729492" y1="4" x2="476.1083297729492" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BESK508" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="545.091667175293" y="9">BESK508</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="531.091667175293" y="-5" width="74.59999084472656" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(229, 149, 96); pointer-events: none;" x1="529.091667175293" y1="4" x2="539.091667175293" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BPEK559" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="619.6916580200195" y="9">BPEK559</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="605.6916580200195" y="-5" width="74.59999084472656" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(100, 114, 149); pointer-events: none;" x1="603.6916580200195" y1="4" x2="613.6916580200195" y2="4" stroke-width="10"></line></g><g class="bb-legend-item bb-legend-item-BIS516B" style="visibility: visible; cursor: pointer;"><text style="pointer-events: none;" x="694.2916488647461" y="9">BIS516B</text><rect class="bb-legend-item-event" style="fill-opacity: 0;" x="680.2916488647461" y="-5" width="60.33332824707031" height="17.316665649414062"></rect><line class="bb-legend-item-tile" style="stroke: rgb(159, 73, 110); pointer-events: none;" x1="678.2916488647461" y1="4" x2="688.2916488647461" y2="4" stroke-width="10"></line></g></g></svg><div class="bb-tooltip-container" style="position: absolute; pointer-events: none; display: none;"></div></div>
+
+          <script>
+            var chart = bb.generate({
+              data: {
+                columns: [["BIS501",80],["BIS502",89],["BIS503",80],["BIS505",89],["BRMIS557",89],["BISL504",75],["BIS586",0],["BESK508",0],["BPEK559",100],["BIS516B",88],,],
+                type: "gauge"
+              },
+              gauge: {
+    type: "multi",
+    max: 100,
+    min: 0,
+    arcs: {
+      minWidth: 5
+    }
+  },
+
+
+              axis: {
+                y: {
+                  //  max: 100,
+                  tick: {
+                    values: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                    count: 10,
+                    format: function(x) {
+                      return x + "%";
+                    },
+                  }
+                }
+              },
+              size: {
+                height: 300
+              },
+              bindto: "#gaugeTypeMulti"
+            });
+
+            // setTimeout(function() {
+            // chart.load({
+            //  });
+            // }, 2000);
+          </script>
+        </div>
+      </div>
+          <!--Helpdesk id: 102061 Begin -->
+      <!--    <div class="uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s">
+               <div class="uk-card uk-card-default uk-card-body cn-zero-pad cn-att-stat cn-mg-btm30">
+                 <div class="uk-card-header">
+                   <div class="uk-flex uk-flex-middle">
+                   <h3 class="uk-card-title">
+                   Credits </h3>
+                     <div class="cn-legend">
+                        <span class="uk-label cn-attend cn-color-green"> Credits Earned</span>
+                        &nbsp<span class="uk-label cn-attend cn-color-yellow">0 Credits to go</span>
+                      </div>
+                   </div>
+                 </div>
+                                 <div class="uk-card-body cn-stu-progress">
+                   <div class="sc-progress sc-progress-small uk-margin-remove sc-progress-group">
+                     <div title="" class="sc-progress-bar md-bg-green-400" style="width:%" title="" aria-expanded="false"></div>
+                     <div title="0" class="sc-progress-bar md-bg-yellow-400" style="width:100%" aria-expanded="false"></div>
+                    </div>
+                 </div>
+               </div>
+              
+             </div> -->
+      <!--Helpdesk id: 102061 End -->
+     <!--Helpdesk id: 102061 Begin -->
+      <!--    <div class="uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s">
+                  
+                   <div class="uk-card uk-card-default uk-card-body cn-zero-pad cn-att-stat">
+                     <div class="uk-card-header">
+                      
+                       <div class="uk-flex uk-flex-middle">
+                         <h3 class="uk-card-title">
+                           Fees status
+                         </h3>
+                         <div class="cn-legend">
+                                                    <span class="uk-label cn-attend cn-color-green">&#x20B9;  Paid</span>
+                                                   
+                         </div>
+                       </div>
+                     </div>
+                     <div class="uk-card-body cn-stu-progress">
+                       <div class="sc-progress sc-progress-small uk-margin-remove sc-progress-group">
+                         <div title=" Paid" class="sc-progress-bar md-bg-green-400" style="width:0%" title="" aria-expanded="false"></div>
+                                                  <div title="0 Pending" class="sc-progress-bar md-bg-red-400" style="width:100%" aria-expanded="false"></div>
+                                              </div>
+                   </div>
+                 </div>
+                  </div> -->
+      <!--Helpdesk id: 102061 End-->
+      </div>
+    <h3 class="page-head-line">
+      <table width="100%">
+
+        
+      </table>
+    </h3>
+
+    <div class="cn-payment-optionn cn-att-cie">
+      <div class="uk-grid uk-grid-stack" uk-grid="">
+        <div class="uk-width-1-1 uk-first-column">
+          <div class="uk-card uk-card-body cn-pad-20 cn-fee-head">
+            <table width="100%" cellspacing="0" cellpadding="0" valign="top" class="dash_even_row uk-table uk-table-striped uk-table-hover cn-pay-table uk-table-middle uk-table-responsive">
+              <caption>Course registration - CIE and attendance status
+                <!-- <div align="right">
+                        <a href="index.php?option=com_studentdashboard&controller=studinternals&task=generateReport" title="Generate CIE Report" > 
+                          Print CIE report  <span uk-icon="print" class="edit-icon uk-icon">  
+                        </a>
+                      </div>  -->
+              </caption>
+
+              <!-- <a style="float: right;font-weight:bold;" href="index.php?option=com_cieextended&controller=ciefinalreport&task=ciefinalreportfreeze" title="Freeze Data Report" > 
+                    Freeze Data report  <span uk-icon="print" class="edit-icon uk-icon">  
+                    </a> -->
+              <thead>
+                <tr>
+                  <th class="">Course code</th>
+                  <th class="">Course Name</th>
+                  <th class="">Lesson Plan</th>
+                  <!-- <th class="">Course Materials</th> -->
+                  <th class="">Attendance</th>
+                  <th class="">CIE</th>
+                </tr>
+              </thead>
+              <tbody>
+                                  <tr>
+                    <td>BIS501</td>
+                    <td>Software Engineering and Project Management</td>
+                                          <td><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=uploadlession&amp;task=getuploadlession&amp;courseId=2134&amp;secId=692&amp;semId=43&amp;deptId=16&amp;streamId=1"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1  cn-attendanceclr">Lesson Plan</button></a></td>
+                                                            <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2134&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-lesson-plan">Attendance</button></a></td>
+                    <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=ciedetails&amp;courseId=2134&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-cieclr">CIE</button></a></td>
+                  </tr>
+                                  <tr>
+                    <td>BIS502</td>
+                    <td>Computer Networks</td>
+                                          <td><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=uploadlession&amp;task=getuploadlession&amp;courseId=2135&amp;secId=692&amp;semId=43&amp;deptId=16&amp;streamId=1"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1  cn-attendanceclr">Lesson Plan</button></a></td>
+                                                            <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2135&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-lesson-plan">Attendance</button></a></td>
+                    <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=ciedetails&amp;courseId=2135&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-cieclr">CIE</button></a></td>
+                  </tr>
+                                  <tr>
+                    <td>BIS503</td>
+                    <td>Theory of Computation</td>
+                                          <td><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=uploadlession&amp;task=getuploadlession&amp;courseId=2136&amp;secId=692&amp;semId=43&amp;deptId=16&amp;streamId=1"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1  cn-attendanceclr">Lesson Plan</button></a></td>
+                                                            <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2136&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-lesson-plan">Attendance</button></a></td>
+                    <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=ciedetails&amp;courseId=2136&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-cieclr">CIE</button></a></td>
+                  </tr>
+                                  <tr>
+                    <td>BIS505</td>
+                    <td>Cloud Computing</td>
+                                          <td><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=uploadlession&amp;task=getuploadlession&amp;courseId=2137&amp;secId=692&amp;semId=43&amp;deptId=16&amp;streamId=1"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1  cn-cieclr">Lesson Plan</button></a></td>
+                                                            <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2137&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-lesson-plan">Attendance</button></a></td>
+                    <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=ciedetails&amp;courseId=2137&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-cieclr">CIE</button></a></td>
+                  </tr>
+                                  <tr>
+                    <td>BRMIS557</td>
+                    <td>Research Methodology and IPR</td>
+                                          <td><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=uploadlession&amp;task=getuploadlession&amp;courseId=2261&amp;secId=692&amp;semId=43&amp;deptId=16&amp;streamId=1"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1  cn-attendanceclr">Lesson Plan</button></a></td>
+                                                            <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2261&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-lesson-plan">Attendance</button></a></td>
+                    <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=ciedetails&amp;courseId=2261&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-cieclr">CIE</button></a></td>
+                  </tr>
+                                  <tr>
+                    <td>BISL504</td>
+                    <td>Data Visualization Laboratory</td>
+                                          <td><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=uploadlession&amp;task=getuploadlession&amp;courseId=2142&amp;secId=692&amp;semId=43&amp;deptId=16&amp;streamId=1"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1  cn-attendanceclr">Lesson Plan</button></a></td>
+                                                            <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2142&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-lesson-plan">Attendance</button></a></td>
+                    <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=ciedetails&amp;courseId=2142&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-cieclr">CIE</button></a></td>
+                  </tr>
+                                  <tr>
+                    <td>BIS586</td>
+                    <td>Minor Project</td>
+                                          <td><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=uploadlession&amp;task=getuploadlession&amp;courseId=2143&amp;secId=692&amp;semId=43&amp;deptId=16&amp;streamId=1"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1  cn-attendanceclr">Lesson Plan</button></a></td>
+                                                            <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2143&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-lesson-plan">Attendance</button></a></td>
+                    <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=ciedetails&amp;courseId=2143&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-cieclr">CIE</button></a></td>
+                  </tr>
+                                  <tr>
+                    <td>BESK508</td>
+                    <td>Environmental Studies</td>
+                                          <td><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=uploadlession&amp;task=getuploadlession&amp;courseId=2144&amp;secId=692&amp;semId=43&amp;deptId=12&amp;streamId=1"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1  cn-attendanceclr">Lesson Plan</button></a></td>
+                                                            <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2144&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-lesson-plan">Attendance</button></a></td>
+                    <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=ciedetails&amp;courseId=2144&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-cieclr">CIE</button></a></td>
+                  </tr>
+                                  <tr>
+                    <td>BPEK559</td>
+                    <td>Physical Education</td>
+                                          <td><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=uploadlession&amp;task=getuploadlession&amp;courseId=2146&amp;secId=692&amp;semId=43&amp;deptId=30&amp;streamId=1"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1  cn-attendanceclr">Lesson Plan</button></a></td>
+                                                            <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2146&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-lesson-plan">Attendance</button></a></td>
+                    <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=ciedetails&amp;courseId=2146&amp;secId=692&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-cieclr">CIE</button></a></td>
+                  </tr>
+                                  <tr>
+                    <td>BIS516B</td>
+                    <td>Artificial Intelligence</td>
+                                          <td><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=uploadlession&amp;task=getuploadlession&amp;courseId=2138&amp;secId=&amp;semId=43&amp;deptId=16&amp;streamId=1"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1  cn-attendanceclr">Lesson Plan</button></a></td>
+                                                            <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2138&amp;secId=&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-lesson-plan">Attendance</button></a></td>
+                    <td><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=ciedetails&amp;courseId=2138&amp;secId=&amp;semId=43"><button class="uk-button uk-button-primary uk-width-1-1 cn-receipt1 cn-cieclr">CIE</button></a></td>
+                  </tr>
+                
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Below code is added By Nischita MID:0058925 -->
+    <script>
+      UIkit.util.ready(function() {
+        UIkit.modal('div#ebook').hide();
+      })
+    </script>
+    <!-- This is the modal -->
+    <div id="ebook" uk-modal="" class="uk-modal">
+      <div class="uk-modal-dialog uk-modal-body cn-att-modal">
+        <h2 class="uk-modal-title cn-title">Attendance</h2>
+        <div class="uk-alert-primary uk-alert" uk-alert="">
+          <a class="uk-alert-close uk-icon uk-close" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></a>
+          <p>More than 85% of Attendance is must in each subject to write final exam.</p>
+        </div>
+        <div class="uk-alert-success uk-alert" uk-alert="">
+          <a class="uk-alert-close uk-icon uk-close" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></a>
+          <p>75% - 84% can be condoned in each subject by principal for genuine reason.</p>
+        </div>
+        <div class="uk-alert-warning uk-alert" uk-alert="">
+          <a class="uk-alert-close uk-icon uk-close" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></a>
+          <p>Below 75% of Attendance in each subject will not be allowed to write the final exam.</p>
+        </div>
+        <h2 class="uk-modal-title cn-title">Internal Assessment</h2>
+        <div class="uk-alert-primary uk-alert" uk-alert="">
+          <a class="uk-alert-close uk-icon uk-close" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></a>
+          <p>Minimum 40% of Internal Assessment in each subject is must to write final exam.</p>
+        </div>
+        <div class="uk-alert-success uk-alert" uk-alert="">
+          <a class="uk-alert-close uk-icon uk-close" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></a>
+          <p>Below 40% of Internal Assessment in each subject will not be allowed to write final exam.</p>
+        </div>
+        <p class="uk-text-right">
+          <button class="uk-button uk-button-default uk-modal-close" type="button">
+            Close
+          </button>
+        </p>
+      </div>
+    </div>
+    <span style=" font-weight:bold; color:red;">DISCLAIMER : The Data Shown on the Parents/Students Portal may not represent the Real Time Data, but is shown for the Immediate Reference to Parents/Students. For Confirmation and Clarification, please contact the respective Departments.</span>
+    <footer>
+          <div class="uk-clearfix cn-footer-text">
+            <div class="uk-float-left">
+              <p class="uk-text-left">
+                Copyright © Powered By <a href="http://www.contineo.in/" target="_blanks">Contineo</a>
+              </p>
+            </div>
+            <div class="uk-float-right">
+              <p class="uk-text-right terms"><a href="#!">Terms of Service</a> | <a href="#!">Privacy Policy</a></p>
+            </div>
+          </div>
+        </footer>
+
+        
+<br>
+<br>
+
+		</div>
+		</div>
+		
+
+
+
+        
+
+<div id="forcepost-nav-wrap" class="collapsed"><button class="fp-btn" type="button" disabled="disabled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg><span>Back</span></button><button class="fp-btn" type="button" disabled="disabled"><span>Next</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></div></body></html>

@@ -1,0 +1,8 @@
+*.har
+secrets*
+local.properties
+.gradle/
+build/
+*.apk
+.idea/
+captures/

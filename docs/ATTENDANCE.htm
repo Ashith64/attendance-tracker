@@ -1,0 +1,839 @@
+<html><head>
+<meta name="robots" content="noindex, nofollow, noarchive">
+   <title>Contineo - Bringing Happiness to work and study places!</title>
+     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="contineo, Contineo">
+  <meta name="description" content="contineo">
+  <meta name="generator" content="contineo">
+  <title>NIE</title>
+  <style type="text/css">
+    <!--
+#forcepost-nav-wrap{position:fixed;right:20px;bottom:20px;z-index:999999;display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);border:1px solid rgba(34,211,238,0.4);border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(34,211,238,0.1);backdrop-filter:blur(10px);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell',sans-serif;transform:translateY(20px);opacity:0;animation:forcepostNavIn 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards;max-width:calc(100vw - 40px);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);}#forcepost-nav-wrap.collapsed{width:48px;height:48px;padding:0;border-radius:50%;justify-content:center;gap:0;background:linear-gradient(135deg,rgba(34,211,238,0.2),rgba(34,211,238,0.1));border:1.5px solid rgba(34,211,238,0.5);}#forcepost-nav-wrap.collapsed .fp-btn{position:absolute;opacity:0;pointer-events:none;padding:0;width:0;height:0;font-size:0;}#forcepost-nav-wrap.collapsed::after{content:'';width:12px;height:12px;background:#22d3ee;border-radius:50%;box-shadow:0 0 12px rgba(34,211,238,0.6),inset 0 0 6px rgba(255,255,255,0.2);animation:pulse 2s ease-in-out infinite;}@keyframes pulse{0%,100%{opacity:0.6;transform:scale(1);}50%{opacity:1;transform:scale(1.2);}}#forcepost-nav-wrap .fp-btn{appearance:none;border:none;background:linear-gradient(135deg,rgba(34,211,238,0.15),rgba(34,211,238,0.05));color:#e2e8f0;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:600;letter-spacing:0.3px;cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border:1.5px solid rgba(34,211,238,0.3);display:flex;align-items:center;gap:8px;white-space:nowrap;position:relative;overflow:hidden;}#forcepost-nav-wrap .fp-btn:hover:not(:disabled){border-color:rgba(34,211,238,0.8);background:linear-gradient(135deg,rgba(34,211,238,0.25),rgba(34,211,238,0.15));color:#ffffff;box-shadow:0 0 20px rgba(34,211,238,0.3),inset 0 1px 0 rgba(255,255,255,0.1);transform:translateY(-2px);}#forcepost-nav-wrap .fp-btn:active:not(:disabled){transform:translateY(0px);box-shadow:0 0 15px rgba(34,211,238,0.2),inset 0 2px 4px rgba(0,0,0,0.2);}#forcepost-nav-wrap .fp-btn:disabled{color:rgba(148,163,184,0.5);cursor:not-allowed;border-color:rgba(148,163,184,0.2);background:linear-gradient(135deg,rgba(15,23,42,0.3),rgba(15,23,42,0.2));opacity:0.5;}#forcepost-nav-wrap .fp-btn svg{width:16px;height:16px;flex-shrink:0;}@keyframes forcepostNavIn{to{transform:translateY(0);opacity:1;}}@media (max-width:640px){#forcepost-nav-wrap{right:12px;bottom:12px;padding:12px 14px;gap:10px;}#forcepost-nav-wrap .fp-btn{padding:9px 12px;font-size:12px;}}
+    -->
+  </style>
+  <script type="text/javascript" src="ATTENDANCE_files/joomla.javascript_Bgqo.js"></script>
+  <script type="text/javascript">
+(function(){
+var backUrl = "index.php?ksign=v2%3AV7iqO0BvFhSUGFg-bk0vqVo15NoWFb0VuMMozqN0R6qWYGxfH5cII6jlnXXihV9n0Mh6ZNnk4N9asGawH5scTlZLVljPClHu_IHE7oHu5Um-TtnFsHHN8juFjrYzGHoD-ht1MtIfoQpu7jnWialCtFQTkWCo6nDoTezaqxUkyHo&_nav=back";
+var nextUrl = "";
+var collapseDelay = 15000;
+var expandDelay = 25000;
+if (!document || document.getElementById('forcepost-nav-wrap')) { return; }
+var collapseTimer = null;
+var isCollapsed = false;
+var wrap = null;
+function go(url){ if (url) { window.location.href = url; } }
+function startCollapseTimer(delay) {
+  if (collapseTimer) clearTimeout(collapseTimer);
+  collapseTimer = setTimeout(function() {
+    if (wrap) { wrap.classList.add('collapsed'); isCollapsed = true; }
+  }, delay);
+}
+function expandButtons() {
+  if (isCollapsed && wrap) {
+    wrap.classList.remove('collapsed'); isCollapsed = false;
+    startCollapseTimer(expandDelay);
+  }
+}
+var backSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
+var nextSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+document.addEventListener('DOMContentLoaded', function(){
+  if (document.getElementById('forcepost-nav-wrap')) { return; }
+  wrap = document.createElement('div'); wrap.id = 'forcepost-nav-wrap';
+  var backBtn = document.createElement('button');
+  backBtn.className = 'fp-btn'; backBtn.type = 'button';
+  backBtn.disabled = !backUrl;
+  backBtn.onclick = function(){ go(backUrl); };
+  backBtn.innerHTML = backSvg + '<span>Back</span>';
+  var nextBtn = document.createElement('button');
+  nextBtn.className = 'fp-btn'; nextBtn.type = 'button';
+  nextBtn.disabled = !nextUrl;
+  nextBtn.onclick = function(){ go(nextUrl); };
+  nextBtn.innerHTML = '<span>Next</span>' + nextSvg;
+  wrap.appendChild(backBtn); wrap.appendChild(nextBtn);
+  document.body.appendChild(wrap);
+  wrap.addEventListener('mouseenter', expandButtons);
+  startCollapseTimer(collapseDelay);
+});
+})();
+  </script>
+
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="shortcut icon" href="https://parents.nie.ac.in/templates/contineoReg/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="ATTENDANCE_files/uikit_Bgqo.css">
+   
+     <link rel="stylesheet" href="ATTENDANCE_files/uikit.min_Bgqo.css">
+    <link rel="stylesheet" href="ATTENDANCE_files/style_Bgqo.css">
+    <script src="ATTENDANCE_files/uikit.min_Bgqo.js"></script>
+    <script src="ATTENDANCE_files/uikit-icons.min_Bgqo.js"></script>
+    <link href="ATTENDANCE_files/jquery-ui_Bgqo.css" rel="stylesheet">
+      
+    <link rel="stylesheet" href="ATTENDANCE_files/billboard_Bgqo.css">
+    <link rel="stylesheet" href="ATTENDANCE_files/billboard.min_Bgqo.css">
+    <link rel="stylesheet" href="ATTENDANCE_files/insight.min_Bgqo.css">
+    <link rel="stylesheet" href="ATTENDANCE_files/insight_Bgqo.css">
+    <script src="ATTENDANCE_files/billboard_Bgqo.js"></script>
+    <script src="ATTENDANCE_files/billboard.pkgd_Bgqo.js"></script>
+    <script src="ATTENDANCE_files/d3.v5.min_Bgqo.js"></script>
+    <link href="ATTENDANCE_files/jquery-ui_Bgqo.css" rel="stylesheet">
+    
+  <script type="text/javascript">
+document.addEventListener('contextmenu', e => e.preventDefault(), false);
+document.addEventListener('keydown', e => {
+    if (e.key === "F12" || (e.ctrlKey || e.metaKey) && (e.key === "U" || e.shiftKey && (e.key === "I" || e.key === "C")))
+        e.preventDefault();
+}, false);
+</script><style type="text/css">
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+</style></head>
+  
+
+
+
+  <body id="page_bg"><form action="index.php" method="POST" name="log">
+
+<input type="hidden" name="option" value="com_user">
+
+<input type="hidden" name="task" value="logout">
+
+<input type="hidden" name="return" value="�w^Ƙi">
+
+</form>
+
+<div class="uk-container">
+    <div class="cn-box-layout" uk-height-viewport="" style="min-height: calc(-70px + 100vh);">
+      
+		<style>
+.cn-nav-bar-list li a {
+    padding: 0px 10px !important;
+    font-size:15px !important;
+}
+.uk-navbar-dropdown {
+    width: 300px !important;
+    padding: 7px !important;
+    /* top: 47px !important; */
+}
+[class*=uk-navbar-dropdown-bottom] {
+    margin-top: 1px !important;
+}
+.uk-navbar-dropdown p{
+
+}
+@media(max-width:1200px) and (min-width:960px){
+  .cn-nav-bar-list li a {
+    font-size:14px !important;
+}
+.cn-logo-text a {
+    font-weight: 700;
+    font-size: 14px;
+    display: block;
+    float: left;
+    padding-left: 7px;
+    padding-top: 0px;
+    color: #fff;
+}
+}
+span.cn-attend, .cn-absent, .cn-still {
+    white-space: initial;
+}
+  </style>
+<!--  <div class="cn-top-bar uk-text-right">
+<a class="uk-text-right cn-switching"  href="/index.php?option=com_studentdashboard&controller=studentdashboard&task=dashboard">Click Here For OLD Design</a>
+</div> -->
+<div class="uk-section  cn-btm-border">
+ <div class="uk-section uk-section-muted cn-header-blde cn-pad-zero cn-header-menu">
+          <div class="uk-grid uk-grid-collapse" uk-grid="">
+            <div class="uk-width-1-4@m uk-width-1-4@l uk-width-1@s uk-first-column" style="align-content:center;">
+              <div class="cn-logo cn-menu-logo uk-flex uk-flex-middle" style="padding:5px;">
+               
+                  <div class="cn-logo-image cn-home-logo">
+                    <img src="ATTENDANCE_files/logo_Bgqo.png" alt="logo">
+                    </div>
+               
+                <div class="cn-logo-text">
+                  <a class="cn-heading" href="#!" rel="home" uk-tooltip="title: THE NATIONAL INSTITUTE OF ENGINEERING, 570008; pos: right" title="" aria-expanded="false">THE NATIONAL INSTITUTE OF ENGINEERING, 570008</a> 
+                </div>
+                </div>
+                
+             
+              </div>
+           
+            
+      
+            <div class="uk-width-expand@m uk-width-4-5@l uk-width-1@s">
+              <nav class="uk-navbar-container uk-flex-column cn-menu-list uk-navbar uk-flex-row" data-uk-navbar="" data-uk-toggle="media: @s; cls: uk-flex-row uk-flex-top; mode: media">
+                <button type="button" data-uk-toggle="target: .navbar-collapse; cls: hidden-up-to-s" class="uk-navbar-toggle uk-hidden@s uk-icon uk-navbar-toggle-icon" data-uk-navbar-toggle-icon=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></button>
+                <div class="navbar-collapse hidden-up-to-s">
+                  <div class="uk-navbar-left uk-float-right">
+                    <ul data-uk-toggle="media: @s; cls: uk-navbar-nav uk-padding-remove; mode: media" class="uk-nav uk-nav-primary uk-padding-small cn-nav-bar-list uk-navbar-nav uk-padding-remove">
+
+                                           <li><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=dashboard">Home</a></li>
+                                            <li><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=observation">Proctorship</a></li>
+                                             <li><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=academiccal&amp;task=calenderdisplay&amp;yearId=2">Events</a></li>
+                                             <li><a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=timetable">Time Table</a></li>
+                       
+                      <li><a href="https://parents.nie.ac.in/index.php?option=com_history&amp;task=getResult&amp;usn=4NI24IS025">Exam History</a></li><!-- index.php?option=com_history&task=getResult -->
+                       
+                          <li>
+                          <a href="#" aria-expanded="false">Registration<span uk-icon="triangle-down" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="triangle-down"><polygon points="5 7 15 7 10 12"></polygon></svg></span></a>
+                        <div class="uk-navbar-dropdown uk-dropdown-small uk-navbar-dropdown-bottom-right" style="left: 1185px; top: 48px;">
+                          <div class="">
+                             <!-- <a href="index.php?option=com_studregistration&controller=registrationdata&task=vwstaticreg">Registration Details</a>  -->
+      <!-- <a href="index.php?option=com_studregistration&controller=coursereg&task=courseRegvw">Student Registration</a>  -->
+      <p style="margin:10px;"><a href="https://parents.nie.ac.in/index.php?option=com_studregistration&amp;controller=coursereg&amp;task=courseRegvw">Student Registration</a></p>
+     
+
+	<p style="margin:10px;"><a href="https://parents.nie.ac.in/index.php?option=com_bvbsims&amp;controller=backlogreg&amp;task=coursereg">F Grade Registration</a>  </p>
+
+<!-- <p style="margin:10px;"> <a href="index.php?option=com_history&controller=studtcourse&task=getEcourse" style="font-weight:normal; text-decoration:underline;">Open elective course Registration</a> </p> -->
+                            
+                        
+                                                                                </div>
+                        </div>
+
+                          </li>
+                       
+<!--                          <li>
+                        <a href="#" aria-expanded="false">Grade Review<span uk-icon="triangle-down"></span></a>
+                        <div class="uk-navbar-dropdown uk-dropdown-small uk-navbar-dropdown-bottom-right" style="left: 1185px; top: 48px;">
+                          <ul class="uk-nav uk-nav-navbar">
+                            <li><a href="index.php?option=com_history&controller=examfee&task=getSubjects&isReval=0">Re-Registration and grade improvement </a></li>
+                            <hr/>
+                            <li><a href="index.php?option=com_history&controller=examfee&task=getSubjects&isReval=1">Supplementary grade review</a></li>
+                           
+                          </ul>
+                        </div>
+                      </li>-->
+<!-- 
+                      <li>
+                        <a href="#" aria-expanded="false">Feedback<span uk-icon="triangle-down"></span></a>
+                        <div class="uk-navbar-dropdown uk-dropdown-small uk-navbar-dropdown-bottom-right" style="left: 1185px; top: 48px;">
+                          <ul class="uk-nav uk-nav-navbar">
+                            <li><a href="index.php?option=com_feedback&controller=feedbackentry&task=feedback">Faculty Feedback </a></li>
+                            <hr/>
+                            <li><a href="index.php?option=com_coursefeedback&controller=feedbackentry&task=feedback">Course Feedback</a></li>
+                                                      </ul>
+                        </div>
+                      </li> -->
+
+                  
+<!-- <li><a  href="index.php?option=com_feedback&controller=feedbackentry&task=feedback">Feedback</a></li> -->
+
+
+    
+    <script>
+									function myFunction()
+										{
+											var txt;
+										var r = confirm("Notice: Without the Hall Ticket with Candidate Signature and Valid College Identity Card, the candidate will not be allowed to appear for the Examination.");
+											//Notice: The Candidate has to compulsorily Affix the Latest Identity Card Size Photograph in the space provided on the Hall Ticket. Without Photo affixed Hall Ticket and Valid Identity Card, the candidate will not be allowed to appear for the examination.
+										if (r == true) {
+											document.getElementById("hallticket").submit();
+										} else {
+											return false;
+										}
+										}
+									</script>
+								
+
+
+                      <li><a href="javascript:document.log.submit()">Logout</a></li>
+                      <form action="index.php" method="post" name="hallticket" id="hallticket">
+										<input type="hidden" name="option" value="com_report">
+										<input type="hidden" name="task" value="preexamReportEngine">
+										<input type="hidden" name="id" value="hallticket">
+										<input type="hidden" name="examId" value="43">
+										<input type="hidden" name="semId" value="">
+										<input type="hidden" name="secdeptId" value="">
+
+										<input type="hidden" name="usn" value="4NI24IS025">
+
+ 									</form>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+
+       
+      
+
+  <style>
+ 
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #909090;
+  
+}
+
+.button1:hover {background-color: #A9A9A9;}
+
+  </style>
+
+  <div class="cn-parent-class">
+
+ 
+
+         <div class="uk-section  cn-finance-sec">
+          <div class="">
+            <div class="cn-mg-left uk-grid uk-grid-collapse" uk-grid="">
+              <div class="uk-width-1-3@l uk-width-1-3@m uk-width-1-3@s cn-student-header cn-red-bg uk-first-column">
+                <div class="cn-stu-data cn-stu-data1">
+                  <h3>ASHITH NAREN MAKANAHALLI</h3>
+                  <img class="uk-preserve-width uk-border" src="ATTENDANCE_files/Thumbnail_User_Original_26419_ASHITH_NAREN_MAKANAHALLI__Bgqo.jpg" alt="Student">
+                </div>
+              </div>
+              <!-- <div style="float:right;" style="margin-top: 20px;">
+                <span >Click <a href="manuals/Bucket configuration KLESCET-2-converted.pdf" style="color: red; font-weight:bold; text-decoration: underline;">HELP</a>  
+              </span></div> -->
+              <div class="uk-width-2-3@l uk-width-2-3@m uk-width-expand@s cn-student-header cn-grey-bg cn-mg-top">
+                <div class="cn-stu-data1 uk-text-right cn-mobile-text">
+                  <div class="">
+                  <h2>4NI24IS025</h2>
+                  </div>
+
+                  <div class="">
+                  <p>B.E-IS,  SEM 05,  SEC D </p>
+                  </div>
+               
+                  
+                  
+                
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        </div>
+        <div class="uk-grid" uk-grid="">
+          <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-1@s uk-first-column">
+            <div class="uk-card">
+                 
+                  
+              <button onclick="toggleTheme()" style="float:left;" class="cn-swith-theme">Switch Theme</button>
+            </div>
+          </div>
+   
+   
+    <!-- <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-1@s uk-text-center@l uk-margin-remove-top">
+        <div class="uk-card">
+            <p class="cn-beta button1" ><a href="index.php?option=com_examresult&task=getResult">View Result</a></p>
+        </div>
+    </div>  -->
+    <div class="uk-width-3-4@l uk-width-3-4@m uk-width-1-1@s uk-text-right@l  uk-margin-remove-top">
+        <div class="uk-card">
+        <p class="uk-text-right cn-last-update">Last Updated On: 12/11/2026</p></div>
+    </div>
+</div>
+<div class="uk-margin-medium-bottom uk-margin-small-top uk-grid-match uk-hidden uk-grid uk-grid-stack" uk-grid="">
+    <div class="uk-width-1-3@l uk-width-1-3@m uk-width-1-1@s">
+        <div class="uk-card uk-card-default cn-cie-stat">
+          <div class="uk-card-header" style="padding: 6px 3px !important;">
+<h3 class="uk-margin-remove-bottom" style="padding:0px 0px !important;">Proctor Details</h3>
+
+        </div>
+        <div class="uk-card-body pd-tblr" style="padding: 6px 3px 0px 3px !important;">
+        <p class="uk-margin-remove-bottom uk-margin-remove-top" style="padding: 3px 0px !important;">Name: Bhavani R</p>
+        <p class="uk-margin-remove-bottom uk-margin-remove-top" style="padding: 3px 0px !important;">Contact No: 8105216206</p>
+        </div>
+        </div>
+    </div>
+    <div class="uk-width-1-3@l uk-width-1-3@m uk-width-1-1@s">
+        <div class="uk-card uk-card-default cn-cie-stat">
+        <div class="uk-card-header" style="padding: 6px 3px !important;">
+        <h3 class="uk-margin-remove-bottom" style="padding:0px 0px !important;">Details</h3>
+</div>
+<div class="uk-card-body pd-tblr" style="padding: 6px 3px 0px 3px !important;">
+<p class="uk-margin-remove-bottom" style="padding: 3px 0px !important;"><a href="https://parents.nie.ac.in/index.php?option=com_history&amp;task=seating">Seating Room Details <span class="uk-float-right uk-icon" uk-icon="chevron-double-right"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="chevron-double-right"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 6 14 10 10 14"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="6 6 10 10 6 14"></polyline></svg></span></a></p>
+<p class="uk-margin-remove-bottom uk-margin-remove-top" style="padding: 3px 0px !important;">
+  <a href="https://parents.nie.ac.in/index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=getcoursedetails">Registration Details <span class="uk-float-right uk-icon" uk-icon="chevron-double-right"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="chevron-double-right"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 6 14 10 10 14"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="6 6 10 10 6 14"></polyline></svg></span></a></p>
+</div>
+        </div>
+    </div>
+    <div class="uk-width-1-3@l uk-width-1-3@m uk-width-1-1@s">
+        <div class="uk-card uk-card-default cn-cie-stat">
+        <div class="uk-card-header" style="padding: 6px 3px !important;">
+        <h3 class="uk-margin-remove-bottom" style="padding:0px 0px !important;">User Manuals</h3>
+</div>
+<div class="uk-card-body pd-tblr" style="padding: 6px 3px 0px 3px !important;">
+<p class="uk-margin-remove-bottom" style="padding: 3px 0px !important;">
+  <a href="https://parents.nie.ac.in/manuals/SIT-Feedback%20entry%20User%20Manual.pdf" target="_blank">Feedback manual <span class="uk-float-right uk-icon" uk-icon="chevron-double-right"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="chevron-double-right"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 6 14 10 10 14"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="6 6 10 10 6 14"></polyline></svg></span></a></p>
+<p class="uk-margin-remove-bottom uk-margin-remove-top" style="padding: 3px 0px !important;">
+  <a href="https://parents.nie.ac.in/manuals/Carry%20forward%20backlogs%20user%20manual%20for%20SIT.pdf" target="_blank">Backlog registration manual <span class="uk-float-right uk-icon" uk-icon="chevron-double-right"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="chevron-double-right"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 6 14 10 10 14"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="6 6 10 10 6 14"></polyline></svg></span> </a></p>
+</div>
+        </div>
+    </div>
+</div>
+
+     
+         <script>
+      function toggleTheme(){
+      window.theme = typeof(window.theme)==='string' ? window.theme : 'light';
+      var switchToTheme = window.theme === 'light' ? 'dark' : 'light';
+      window.theme = switchToTheme;
+      document.querySelector('body').setAttribute('data-theme',switchToTheme);
+      }
+    </script>		
+		
+		
+		 
+
+
+<!--<link rel="stylesheet" type="text/css" href="components/com_timetable/assets/css/timetable.css">
+<link rel="stylesheet" type="text/css" href="components/com_studentdashboard/assets/css/student.css">-->
+
+
+
+
+		
+<div class="cn-detailed-info">
+
+        <ul uk-tab="" class="uk-tab">
+                  <li id="tab1" class="uk-active" uk-tooltip="title: Software Engineering and Project Management; pos: bottom" title="" aria-expanded="false">
+          <a href="#" onclick="window.location.href='index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2134&amp;secId=692&amp;semId=43';" aria-expanded="true">BIS501</a>
+          </li>
+                    <li id="tab2" uk-tooltip="title: Computer Networks; pos: bottom" title="" aria-expanded="false">
+          <a href="#" onclick="window.location.href='index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2135&amp;secId=692&amp;semId=43';" aria-expanded="false">BIS502</a>
+          </li>
+                    <li id="tab3" uk-tooltip="title: Theory of Computation; pos: bottom" title="" aria-expanded="false">
+          <a href="#" onclick="window.location.href='index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2136&amp;secId=692&amp;semId=43';" aria-expanded="false">BIS503</a>
+          </li>
+                    <li id="tab4" uk-tooltip="title: Cloud Computing; pos: bottom" title="" aria-expanded="false">
+          <a href="#" onclick="window.location.href='index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2137&amp;secId=692&amp;semId=43';" aria-expanded="false">BIS505</a>
+          </li>
+                    <li id="tab5" uk-tooltip="title: Research Methodology and IPR; pos: bottom" title="" aria-expanded="false">
+          <a href="#" onclick="window.location.href='index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2261&amp;secId=692&amp;semId=43';" aria-expanded="false">BRMIS557</a>
+          </li>
+                    <li id="tab6" uk-tooltip="title: Data Visualization Laboratory; pos: bottom" title="" aria-expanded="false">
+          <a href="#" onclick="window.location.href='index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2142&amp;secId=692&amp;semId=43';" aria-expanded="false">BISL504</a>
+          </li>
+                    <li id="tab7" uk-tooltip="title: Minor Project; pos: bottom" title="" aria-expanded="false">
+          <a href="#" onclick="window.location.href='index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2143&amp;secId=692&amp;semId=43';" aria-expanded="false">BIS586</a>
+          </li>
+                    <li id="tab8" uk-tooltip="title: Environmental Studies; pos: bottom" title="" aria-expanded="false">
+          <a href="#" onclick="window.location.href='index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2144&amp;secId=692&amp;semId=43';" aria-expanded="false">BESK508</a>
+          </li>
+                    <li id="tab9" uk-tooltip="title: Physical Education; pos: bottom" title="" aria-expanded="false">
+          <a href="#" onclick="window.location.href='index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2146&amp;secId=692&amp;semId=43';" aria-expanded="false">BPEK559</a>
+          </li>
+                    <li id="tab10" uk-tooltip="title: Artificial Intelligence; pos: bottom" title="" aria-expanded="false">
+          <a href="#" onclick="window.location.href='index.php?option=com_studentdashboard&amp;controller=studentdashboard&amp;task=attendencelist&amp;courseId=2138&amp;secId=&amp;semId=43';" aria-expanded="false">BIS516B</a>
+          </li>
+          	  </ul>
+
+            <!-- <div class="" uk-grid>
+                    <div class="uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s uk-margin-medium-bottom@s">
+                      <div class="uk-card  uk-card-body cn-lec-info"> -->
+                        <!-- <div class="md-card">
+                          <div class="md-card-head md-bg-light-blue-600 uk-flex">
+                            <h3 class="md-card-head-text uk-margin-remove"> -->
+                              
+              <div class="uk-grid-match uk-grid" uk-grid="">
+                <div class="uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s uk-first-column">
+                  <div class="uk-card  uk-card-body cn-lec-info">
+                                          <div class="md-card md-card-head md-bg-light-blue-600 uk-flex uk-flex-middle">
+                            <div class="">
+                                                          <img class="md-card-head-avatar" src="ATTENDANCE_files/17546_20190821105737_Bgqo.jpg" alt="">
+                            </div>
+                            <h3 class="md-card-head-text">
+                              Mrs. VANAMALA   C K                              
+                            <br><span>BIS501 - Software Engineering and Project Management</span> 
+                            <span></span>                            <span></span>                            </h3>
+                         </div>
+                                                                 
+                </div>
+              </div>
+                    <div class="uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s uk-margin-medium-bottom@s">
+                      <div class="uk-card  uk-card-body cn-zero-pad cn-att-stat ">
+                        <div class="uk-card-header uk-margin-small">
+                          <div class="uk-flex uk-flex-middle">
+                            <h3 class="uk-card-title">
+                              Attendance Status</h3>
+                                                            <div class="cn-legend">
+                                 <span class="uk-label cn-attend cn-color-green">Present[28]</span>
+                              <span class="uk-label cn-absent cn-color-red">Absent [7]</span>
+                              <span class="uk-label cn-still cn-color-grey">Still to go [13]</span>
+                              </div>
+                          </div>
+                        </div>
+                        
+        <div class="uk-card-body cn-stu-progress">
+	                <div class="sc-progress sc-progress-small uk-margin-remove sc-progress-group">
+                                                        <div title="Present:28" class="sc-progress-bar md-bg-green-400" style="width:58.33%" aria-expanded="false">
+                                        28                                </div>
+                                                        <div title="Absent:7" class="sc-progress-bar md-bg-red-400" style="width: 14.58%" aria-expanded="false">
+                                         
+                                </div>
+                                                        <div title="Still to go:13" class="sc-progress-bar md-bg-grey-400" style="width: 27%" aria-expanded="false"></div>
+                              
+		
+                                                </div>	
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      
+
+
+<div>
+<div class="uk-margin-medium-top uk-grid" uk-grid="">
+               <div class="uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s uk-first-column">
+                 <div class="cn-present-table">
+                 <table class="uk-table uk-table-small cn-attend-list1 uk-table-striped">
+                   <caption>Present <span class="uk-label cn-color-green"> Classes 28</span></caption>
+                   <thead>
+                     <tr>
+                       <th>Sl No</th>
+                       <th>Date</th>
+                       <th>Time</th>
+                       <th>Status</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+				                       <tr class="even">
+                       <td>  1</td>
+                       <td> 17-08-2026</td>
+                       <td>  09:00                         TO
+                         10:00</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  2</td>
+                       <td> 22-08-2026</td>
+                       <td>  11:00                         TO
+                         12:00</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  3</td>
+                       <td> 22-08-2026</td>
+                       <td>  12:00                         TO
+                         13:00</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  4</td>
+                       <td> 24-08-2026</td>
+                       <td>  09:00                         TO
+                         10:00</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  5</td>
+                       <td> 25-08-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  6</td>
+                       <td> 26-08-2026</td>
+                       <td>  11:00                         TO
+                         12:00</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  7</td>
+                       <td> 31-08-2026</td>
+                       <td>  09:00                         TO
+                         10:00</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  8</td>
+                       <td> 01-09-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  9</td>
+                       <td> 02-09-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  10</td>
+                       <td> 08-09-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  11</td>
+                       <td> 09-09-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  12</td>
+                       <td> 16-09-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  13</td>
+                       <td> 21-09-2026</td>
+                       <td>  09:00                         TO
+                         10:00</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  14</td>
+                       <td> 22-09-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  15</td>
+                       <td> 23-09-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  16</td>
+                       <td> 28-09-2026</td>
+                       <td>  09:00                         TO
+                         10:00</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  17</td>
+                       <td> 29-09-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  18</td>
+                       <td> 06-10-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  19</td>
+                       <td> 07-10-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  20</td>
+                       <td> 12-10-2026</td>
+                       <td>  09:00                         TO
+                         10:00</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  21</td>
+                       <td> 14-10-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  22</td>
+                       <td> 19-10-2026</td>
+                       <td>  09:00                         TO
+                         10:00</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  23</td>
+                       <td> 27-10-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  24</td>
+                       <td> 28-10-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  25</td>
+                       <td> 02-11-2026</td>
+                       <td>  09:00                         TO
+                         10:00</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  26</td>
+                       <td> 03-11-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="even">
+                       <td>  27</td>
+                       <td> 04-11-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                     <tr class="odd">
+                       <td>  28</td>
+                       <td> 11-11-2026</td>
+                       <td>  12:30                         TO
+                         13:30</td>
+                       <td> Present</td>
+					 </tr>
+					                      </tbody>
+                 </table>
+                 </div>
+			   </div>
+			   			   
+               <div class="uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s">
+                <div class="cn-present-table">
+                 <table class="uk-table uk-table-small cn-attend-list2 uk-table-striped">
+                   <caption>Absent List <span class="uk-label cn-color-red"> Classes 7</span></caption>
+                   <thead>
+                     <tr>
+                       <th>Sl No</th>
+                       <th>Date</th>
+                       <th>Time</th>
+                       <th>Status</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+				                       	<tr class="even">
+                       <td>  1</td>
+                       <td>  29-08-2026</td>
+                       <td> 11:00                         TO
+                         12:00</td>
+                       <td>  Absent</td>
+                     </tr>
+					                     	<tr class="odd">
+                       <td>  2</td>
+                       <td>  05-09-2026</td>
+                       <td> 16:00                         TO
+                         18:00</td>
+                       <td>  Absent</td>
+                     </tr>
+					                     	<tr class="even">
+                       <td>  3</td>
+                       <td>  07-09-2026</td>
+                       <td> 09:00                         TO
+                         10:00</td>
+                       <td>  Absent</td>
+                     </tr>
+					                     	<tr class="odd">
+                       <td>  4</td>
+                       <td>  15-09-2026</td>
+                       <td> 12:30                         TO
+                         13:30</td>
+                       <td>  Absent</td>
+                     </tr>
+					                     	<tr class="even">
+                       <td>  5</td>
+                       <td>  30-09-2026</td>
+                       <td> 12:30                         TO
+                         13:30</td>
+                       <td>  Absent</td>
+                     </tr>
+					                     	<tr class="odd">
+                       <td>  6</td>
+                       <td>  05-10-2026</td>
+                       <td> 09:00                         TO
+                         10:00</td>
+                       <td>  Absent</td>
+                     </tr>
+					                     	<tr class="even">
+                       <td>  7</td>
+                       <td>  13-10-2026</td>
+                       <td> 12:30                         TO
+                         13:30</td>
+                       <td>  Absent</td>
+                     </tr>
+					                    </tbody>
+                 </table>
+                </div>
+               </div>
+			 </div>
+			 </div>
+
+
+
+
+
+	
+
+</div>
+<span style=" font-weight:bold; color:red;">DISCLAIMER : The Data Shown on the Parents/Students Portal may not represent the Real Time Data, but is shown for the Immediate Reference to Parents/Students. For Confirmation and Clarification, please contact the respective Departments.</span>
+<br><br>
+<footer>
+          <div class="uk-clearfix cn-footer-text">
+            <div class="uk-float-left">
+              <p class="uk-text-left">
+                Copyright © Powered By <a href="http://www.contineo.in/" target="_blanks">Contineo</a>
+              </p>
+            </div>
+            <div class="uk-float-right">
+              <p class="uk-text-right terms"><a href="#!">Terms of Service</a> | <a href="#!">Privacy Policy</a></p>
+            </div>
+          </div>
+        </footer>
+
+
+
+
+
+
+
+
+
+
+<!--<style>
+@font-face {
+  font-family: 'Roboto Light';
+  src: url('components/com_studentdashboard/assets/fonts/roboto/Roboto-Light.ttf');
+}
+</style>-->
+
+
+		</div>
+		</div>
+		
+
+
+
+        
+
+<div id="forcepost-nav-wrap"><button class="fp-btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg><span>Back</span></button><button class="fp-btn" type="button" disabled="disabled"><span>Next</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></div></body></html>
