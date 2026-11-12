@@ -238,6 +238,18 @@ object UiStateMapper {
         count: Int,
     ): BunkSimulationUiModel {
         val safeCount = count.coerceAtLeast(0)
+        if (conducted <= 0) {
+            return BunkSimulationUiModel(
+                mode = mode,
+                count = safeCount,
+                thresholdPercent = thresholdPercent,
+                projectedAttended = if (mode == BunkMode.ATTEND) safeCount else 0,
+                projectedConducted = safeCount,
+                projectedPercentageText = "No data",
+                projectedStatusText = "No classes conducted",
+                projectedHealth = CourseHealth.NO_DATA,
+            )
+        }
         val input = AttendanceInput(
             attended = attended.coerceAtLeast(0),
             conducted = conducted.coerceAtLeast(0),

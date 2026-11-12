@@ -6,6 +6,7 @@ import app.attendancetracker.data.AttendanceRepository
 import app.attendancetracker.data.ExamHistoryEntity
 import app.attendancetracker.data.SnapshotCategory
 import app.attendancetracker.data.SnapshotStatus
+import app.attendancetracker.data.UrlSanitizer
 import app.attendancetracker.parser.ParseResult
 import app.attendancetracker.parser.PortalParsers
 import kotlinx.coroutines.delay
@@ -133,12 +134,12 @@ class PortalFetcher(
                     val finalUrl = response.request.url.toString()
                     val code = response.code
                     if (!response.isSuccessful) {
-                        Log.e("PortalFetcher", "HTTP error $code for $resolved (finalUrl=$finalUrl)")
+                        Log.e("PortalFetcher", "HTTP error $code for ${UrlSanitizer.sanitize(resolved)} (finalUrl=${UrlSanitizer.sanitize(finalUrl)})")
                         return FetchResult.Error("HTTP ${response.code}")
                     }
                     val body = response.body?.string().orEmpty()
                     val isLogin = looksLikeLoginPage(body, finalUrl)
-                    Log.d("PortalFetcher", "fetchHtml: code=$code, finalUrl=$finalUrl, bodyLength=${body.length}, isLogin=$isLogin")
+                    Log.d("PortalFetcher", "fetchHtml: code=$code, finalUrl=${UrlSanitizer.sanitize(finalUrl)}, bodyLength=${body.length}, isLogin=$isLogin")
                     if (isLogin) {
                         return FetchResult.SessionExpired("Portal returned login page")
                     }

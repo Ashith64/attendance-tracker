@@ -92,6 +92,31 @@ class UiStateMapperTest {
     }
 
     @Test
+    fun simulateBunk_zeroConducted_returnsNoDataNeverZeroPercent() {
+        val simMiss = UiStateMapper.simulateBunk(
+            attended = 0,
+            conducted = 0,
+            thresholdPercent = 75,
+            mode = BunkMode.MISS,
+            count = 1,
+        )
+        assertEquals("No data", simMiss.projectedPercentageText)
+        assertEquals(CourseHealth.NO_DATA, simMiss.projectedHealth)
+        assertEquals("No classes conducted", simMiss.projectedStatusText)
+
+        val simAttend = UiStateMapper.simulateBunk(
+            attended = 0,
+            conducted = 0,
+            thresholdPercent = 75,
+            mode = BunkMode.ATTEND,
+            count = 1,
+        )
+        assertEquals("No data", simAttend.projectedPercentageText)
+        assertEquals(CourseHealth.NO_DATA, simAttend.projectedHealth)
+        assertEquals("No classes conducted", simAttend.projectedStatusText)
+    }
+
+    @Test
     fun mapAttendanceHistory_handlesValidAndFailedSnapshots() {
         val snapshots = listOf(
             SnapshotEntity(

@@ -27,6 +27,12 @@
   - Priority Course Ordering: Automatically sorts courses with lower attendance percentages to the very top so students instantly see what needs attention. Courses with 0 conducted classes / 0 attendance / no data are neatly pinned to the bottom.
   - Compact Phone Typography: Reduced typography scale (`10sp` code, `13.5sp` title, `19sp` bold percentage, `11sp` stats) and tightened padding (`14dp/10dp`) so 5–6 courses fit comfortably on phone screens with minimal scrolling.
   - Ultra-Smooth 120Hz Transitions: Tuned Compose `AnimatedContent` transition to use snappy `FastOutSlowInEasing` / `FastOutLinearInEasing` (160–180ms) for instant, lag-free slide and fade animations between Dashboard and Course Detail screens.
-  - Verification & Deployment: All 52 unit tests pass. Fresh APK built and installed to device (`RZCX91F0DYT`).
-- **Next:** User testing and feedback on live phone.
+  - Verification & Deployment: All 54 unit tests pass. Fresh Release APK built (`builds/app-release.apk`) and installed to device (`RZCX91F0DYT`).
+  - Production Hardening & Security Audit Fixes (v1.0.1):
+    1. Extended login & reCAPTCHA budget (10s polling, 35s timeout) and Stage-1 autofill on verification fallback to ensure reliable login on mobile networks.
+    2. Signed release build configuration (`app-release.apk`) with version code 2.
+    3. Documented Attendance-Only architecture scope in `README.md`.
+    4. Fixed BunkCalculator edge case for zero conducted classes to strictly preserve "No data" per Rule 16.
+    5. Filtered sensitive query tokens (signatures, keys, auth) from all Logcat statements via `UrlSanitizer`.
+- **Next:** Push changes to GitHub and publish v1.0.1 release asset.
 - **Blockers:** None.

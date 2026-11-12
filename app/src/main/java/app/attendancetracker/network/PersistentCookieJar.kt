@@ -1,6 +1,7 @@
 package app.attendancetracker.network
 
 import android.util.Log
+import app.attendancetracker.data.UrlSanitizer
 import okhttp3.Cookie
 import okhttp3.CookieJar
 import okhttp3.HttpUrl
@@ -44,7 +45,7 @@ class PersistentCookieJar(
         if (cookies.isEmpty()) return
         synchronized(lock) {
             val now = System.currentTimeMillis()
-            Log.d("PersistentCookieJar", "saveFromResponse: url=$url, incomingCount=${cookies.size}")
+            Log.d("PersistentCookieJar", "saveFromResponse: url=${UrlSanitizer.sanitize(url.toString())}, incomingCount=${cookies.size}")
             for (incoming in cookies) {
                 // If a cookie has an explicit expiration that is past (<= now), remove it (server expired it).
                 // If it is a session cookie (persistent is false), expiresAt is Long.MIN_VALUE or not set.
@@ -81,7 +82,7 @@ class PersistentCookieJar(
                 persistence.saveAll(cache.toList())
             }
             val matched = cache.filter { it.matches(url) }
-            Log.d("PersistentCookieJar", "loadForRequest: url=$url, totalInCache=${cache.size}, matchedCount=${matched.size}")
+            Log.d("PersistentCookieJar", "loadForRequest: url=${UrlSanitizer.sanitize(url.toString())}, totalInCache=${cache.size}, matchedCount=${matched.size}")
             return matched
         }
     }
@@ -92,7 +93,7 @@ class PersistentCookieJar(
      */
     fun importFromWebViewCookieHeader(urlString: String, cookieHeader: String?) {
         if (cookieHeader.isNullOrBlank()) {
-            Log.w("PersistentCookieJar", "importFromWebViewCookieHeader: cookieHeader is null or blank for $urlString")
+            Log.w("PersistentCookieJar", "importFromWebViewCookieHeader: cookieHeader is null or blank for ${UrlSanitizer.sanitize(urlString)}")
             return
         }
         val httpUrl = urlString.toHttpUrlOrNull() ?: return

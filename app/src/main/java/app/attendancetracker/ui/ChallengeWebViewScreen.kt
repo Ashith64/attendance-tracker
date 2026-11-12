@@ -23,12 +23,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import app.attendancetracker.security.PortalWebViewLoginController
+import app.attendancetracker.security.StudentCredentials
 import app.attendancetracker.ui.theme.AppColors
 
 @Composable
 fun ChallengeWebViewScreen(
     reason: String?,
     webViewController: PortalWebViewLoginController,
+    credentials: StudentCredentials? = null,
     onCompleted: () -> Unit,
     onCancelToLogin: () -> Unit,
     modifier: Modifier = Modifier,
@@ -42,6 +44,7 @@ fun ChallengeWebViewScreen(
             )
             webViewController.attachInteractiveChallengeClient(
                 webView = this,
+                credentials = credentials,
                 onLoginSuccess = onCompleted,
                 onNetworkError = { /* WebView displays its own error or user can retry */ },
             )

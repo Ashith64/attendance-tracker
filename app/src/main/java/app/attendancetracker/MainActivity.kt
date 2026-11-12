@@ -46,6 +46,8 @@ import app.attendancetracker.network.PortalFetcher
 import app.attendancetracker.security.AndroidCredentialStore
 import app.attendancetracker.security.AuthSessionStateMachine
 import app.attendancetracker.security.BiometricAppLock
+import app.attendancetracker.security.CredentialReadResult
+import app.attendancetracker.security.CredentialStore
 import app.attendancetracker.security.DataStoreSettingsStore
 import app.attendancetracker.security.PortalWebViewLoginController
 import app.attendancetracker.security.SessionCheckResult
@@ -129,6 +131,7 @@ class MainActivity : FragmentActivity() {
                     AttendanceAppRoot(
                         activity = this@MainActivity,
                         stateMachine = stateMachine,
+                        credentialStore = credentialStore,
                         repository = repository,
                         syncManager = syncManager,
                         settingsStore = settingsStore,
@@ -151,6 +154,7 @@ class MainActivity : FragmentActivity() {
 private fun AttendanceAppRoot(
     activity: FragmentActivity,
     stateMachine: AuthSessionStateMachine,
+    credentialStore: CredentialStore,
     repository: AttendanceRepository,
     syncManager: SyncManager,
     settingsStore: SettingsStore,
@@ -163,6 +167,14 @@ private fun AttendanceAppRoot(
     var showDebugScreen by remember { mutableStateOf(false) }
     var selectedCourseCode by remember { mutableStateOf<String?>(null) }
     var pendingCredentials by remember { mutableStateOf<StudentCredentials?>(null) }
+    var storedCredentials by remember { mutableStateOf<StudentCredentials?>(null) }
+
+    LaunchedEffect(Unit) {
+        when (val res = credentialStore.read()) {
+            is CredentialReadResult.Success -> storedCredentials = res.credentials
+            else -> {}
+        }
+    }
 
     val authSnapshot by stateMachine.snapshot.collectAsState()
     val syncState by syncManager.state.collectAsState()
@@ -262,12 +274,14 @@ private fun AttendanceAppRoot(
         courses.isNotEmpty()
 
     if (authSnapshot.state == SessionState.CHALLENGE_REQUIRED) {
+        val activeCreds = pendingCredentials ?: storedCredentials
         ChallengeWebViewScreen(
             reason = authSnapshot.challengeReason,
             webViewController = webViewController,
+            credentials = activeCreds,
             onCompleted = {
                 scope.launch {
-                    stateMachine.onChallengeCompleted(pendingCredentials)
+                    stateMachine.onChallengeCompleted(activeCreds)
                     pendingCredentials = null
                     triggerSync(forceRefresh = true)
                 }

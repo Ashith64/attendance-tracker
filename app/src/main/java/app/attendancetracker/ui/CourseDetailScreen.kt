@@ -294,6 +294,32 @@ fun BunkCalculatorCard(
     onChangeCount: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    if (!hasData || conducted <= 0) {
+        Surface(
+            color = AppColors.Surface,
+            shape = RoundedCornerShape(16.dp),
+            border = BorderStroke(1.dp, AppColors.BorderSubtle),
+            modifier = modifier.fillMaxWidth(),
+        ) {
+            Column(
+                modifier = Modifier.padding(18.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                Text(
+                    text = "Bunk Calculator",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = AppColors.TextPrimary,
+                )
+                Text(
+                    text = "No classes conducted yet. Attendance simulation becomes available once class records are present.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = AppColors.TextMuted,
+                )
+            }
+        }
+        return
+    }
+
     val sim = UiStateMapper.simulateBunk(
         attended = attended,
         conducted = conducted,

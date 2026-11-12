@@ -15,6 +15,16 @@ object UrlSanitizer {
         "username",
         "cookie",
         "session",
+        "auth",
+        "sig",
+        "signature",
+        "key",
+        "otp",
+        "dob",
+        "phone",
+        "mobile",
+        "digits",
+        "hash",
     )
 
     fun sanitize(rawUrl: String): String {

@@ -6,6 +6,7 @@ import app.attendancetracker.data.AttendanceRepository
 import app.attendancetracker.data.ExamHistoryEntity
 import app.attendancetracker.data.SnapshotCategory
 import app.attendancetracker.data.SnapshotStatus
+import app.attendancetracker.data.UrlSanitizer
 import app.attendancetracker.network.FetchResult
 import app.attendancetracker.network.PortalSyncClient
 import app.attendancetracker.parser.ParseResult
@@ -190,7 +191,7 @@ class SyncManager(
                     return _state.value
                 }
                 is FetchResult.Success -> {
-                    Log.d("SyncManager", "Dashboard fetch success, finalUrl=${dashFetch.finalUrl}, length=${dashFetch.data.length}")
+                    Log.d("SyncManager", "Dashboard fetch success, finalUrl=${UrlSanitizer.sanitize(dashFetch.finalUrl)}, length=${dashFetch.data.length}")
                 }
             }
 
@@ -233,7 +234,7 @@ class SyncManager(
                 // ATTENDANCE
                 val attUrl = course.attendanceUrl
                 if (attUrl != null) {
-                    Log.d("SyncManager", "  ATT ${course.code}: fetching $attUrl")
+                    Log.d("SyncManager", "  ATT ${course.code}: fetching ${UrlSanitizer.sanitize(attUrl)}")
                     when (val attFetch = syncClient.fetchHtml(attUrl)) {
                         is FetchResult.SessionExpired -> {
                             Log.w("SyncManager", "  ATT ${course.code}: session expired mid-sync")

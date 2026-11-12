@@ -38,9 +38,9 @@ class PortalWebViewLoginController(
 ) {
     companion object {
         const val PORTAL_URL = "https://parents.nie.ac.in/"
-        private const val LOGIN_TIMEOUT_MS = 25_000L
-        private const val RECAPTCHA_POLL_MS = 100L
-        private const val RECAPTCHA_MAX_POLLS = 30
+        private const val LOGIN_TIMEOUT_MS = 35_000L
+        private const val RECAPTCHA_POLL_MS = 200L
+        private const val RECAPTCHA_MAX_POLLS = 50
     }
 
     private val mainHandler = Handler(Looper.getMainLooper())
@@ -172,9 +172,11 @@ class PortalWebViewLoginController(
     /**
      * Attaches a WebViewClient to a visible WebView so the student can manually complete
      * a CAPTCHA, OTP, or portal challenge. Calls [onLoginSuccess] once the dashboard loads.
+     * Optionally takes [credentials] to auto-populate USN/DOB if the page is on Stage 1.
      */
     fun attachInteractiveChallengeClient(
         webView: WebView,
+        credentials: StudentCredentials? = null,
         onLoginSuccess: () -> Unit,
         onNetworkError: (String) -> Unit,
     ) {
@@ -198,6 +200,8 @@ class PortalWebViewLoginController(
                     if (state == "DASHBOARD") {
                         exportCookiesToJar(view.url)
                         onLoginSuccess()
+                    } else if (state == "STAGE1" && credentials != null) {
+                        view.evaluateJavascript(buildStage1FillJs(credentials), null)
                     }
                 }
             }
