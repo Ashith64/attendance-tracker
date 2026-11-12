@@ -1,10 +1,5 @@
 package app.attendancetracker.ui
 
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -43,18 +38,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import app.attendancetracker.data.SnapshotStatus
-import app.attendancetracker.parser.CieData
-import app.attendancetracker.parser.LessonPlanData
 import app.attendancetracker.security.SettingsStore
 import app.attendancetracker.ui.theme.AppColors
-import app.attendancetracker.ui.theme.AppMotion
 import app.attendancetracker.ui.theme.AttendanceTrackerTheme
-
-enum class CourseDetailTab(val label: String) {
-    ATTENDANCE("Attendance"),
-    CIE("CIE"),
-    LESSON_PLAN("Lesson Plan"),
-}
 
 @Composable
 fun CourseDetailScreen(
@@ -63,7 +49,6 @@ fun CourseDetailScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    var selectedTab by rememberSaveable { mutableStateOf(CourseDetailTab.ATTENDANCE) }
     var calcThreshold by rememberSaveable(defaultThresholdPercent) {
         mutableIntStateOf(defaultThresholdPercent)
     }
@@ -77,8 +62,8 @@ fun CourseDetailScreen(
         modifier = modifier.fillMaxSize(),
     ) { innerPadding ->
         LazyColumn(
-            contentPadding = PaddingValues(horizontal = 20.dp, vertical = 12.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
+            verticalArrangement = Arrangement.spacedBy(14.dp),
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
@@ -109,34 +94,10 @@ fun CourseDetailScreen(
                 )
             }
 
-            item(key = "tabs") {
-                CourseDetailTabRow(
-                    selectedTab = selectedTab,
-                    onSelectTab = { selectedTab = it },
+            item(key = "history-section") {
+                AttendanceHistorySection(
+                    history = detail.attendanceHistory,
                 )
-            }
-
-            item(key = "tab-content") {
-                AnimatedContent(
-                    targetState = selectedTab,
-                    transitionSpec = {
-                        fadeIn(tween(AppMotion.DURATION_MEDIUM_MS)) togetherWith
-                            fadeOut(tween(AppMotion.DURATION_FAST_MS))
-                    },
-                    label = "course-detail-tab",
-                ) { tab ->
-                    when (tab) {
-                        CourseDetailTab.ATTENDANCE -> AttendanceHistorySection(
-                            history = detail.attendanceHistory,
-                        )
-                        CourseDetailTab.CIE -> CieSection(
-                            cieData = detail.cieData,
-                        )
-                        CourseDetailTab.LESSON_PLAN -> LessonPlanSection(
-                            lessonPlan = detail.lessonPlan,
-                        )
-                    }
-                }
             }
 
             item(key = "bottom-space") {
@@ -523,39 +484,6 @@ private fun StepperButton(
 }
 
 @Composable
-private fun CourseDetailTabRow(
-    selectedTab: CourseDetailTab,
-    onSelectTab: (CourseDetailTab) -> Unit,
-) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(AppColors.Surface, RoundedCornerShape(12.dp))
-            .padding(4.dp),
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        CourseDetailTab.entries.forEach { tab ->
-            val selected = tab == selectedTab
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .weight(1f)
-                    .clip(RoundedCornerShape(9.dp))
-                    .background(if (selected) AppColors.SurfaceElevated else AppColors.Surface)
-                    .clickable { onSelectTab(tab) }
-                    .padding(vertical = 10.dp),
-            ) {
-                Text(
-                    text = tab.label,
-                    style = MaterialTheme.typography.labelLarge,
-                    color = if (selected) AppColors.TextPrimary else AppColors.TextMuted,
-                )
-            }
-        }
-    }
-}
-
-@Composable
 private fun AttendanceHistorySection(
     history: List<AttendanceHistoryEntry>,
 ) {
@@ -570,7 +498,7 @@ private fun AttendanceHistorySection(
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Text(
-                text = "Snapshot History",
+                text = "Attendance History",
                 style = MaterialTheme.typography.titleMedium,
                 color = AppColors.TextPrimary,
             )
@@ -626,166 +554,4 @@ private fun AttendanceHistorySection(
             }
         }
     }
-}
-
-@Composable
-private fun CieSection(
-    cieData: CieData?,
-) {
-    Surface(
-        color = AppColors.Surface,
-        shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(1.dp, AppColors.BorderSubtle),
-        modifier = Modifier.fillMaxWidth(),
-    ) {
-        Column(
-            modifier = Modifier.padding(18.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = "CIE Marks",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = AppColors.TextPrimary,
-                )
-                if (cieData?.currentCie != null) {
-                    Text(
-                        text = "Course CIE: ${formatScore(cieData.currentCie)}",
-                        style = MaterialTheme.typography.labelLarge,
-                        color = AppColors.TextSecondary,
-                    )
-                }
-            }
-
-            if (cieData == null || cieData.assessments.isEmpty()) {
-                Text(
-                    text = "No CIE marks published for this course yet.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = AppColors.TextMuted,
-                )
-            } else {
-                if (!cieData.discrepancyNote.isNullOrBlank()) {
-                    StatusBanner(
-                        title = "Portal discrepancy",
-                        message = cieData.discrepancyNote,
-                        isWarning = true,
-                    )
-                }
-                cieData.assessments.forEach { assessment ->
-                    Surface(
-                        color = AppColors.SurfaceElevated,
-                        shape = RoundedCornerShape(10.dp),
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 14.dp, vertical = 12.dp),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                                Text(
-                                    text = assessment.label,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = AppColors.TextPrimary,
-                                )
-                                Text(
-                                    text = "Class avg ${formatScore(assessment.classAverage)}",
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = AppColors.TextMuted,
-                                )
-                            }
-                            Text(
-                                text = "${formatScore(assessment.obtainedMarks)} / ${formatScore(assessment.maxMarks)}",
-                                style = MaterialTheme.typography.titleMedium,
-                                color = AppColors.TextPrimary,
-                            )
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun LessonPlanSection(
-    lessonPlan: LessonPlanData?,
-) {
-    Surface(
-        color = AppColors.Surface,
-        shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(1.dp, AppColors.BorderSubtle),
-        modifier = Modifier.fillMaxWidth(),
-    ) {
-        Column(
-            modifier = Modifier.padding(18.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            Text(
-                text = "Lesson Plan",
-                style = MaterialTheme.typography.titleMedium,
-                color = AppColors.TextPrimary,
-            )
-            if (lessonPlan == null) {
-                Text(
-                    text = "Lesson plan not available for this course.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = AppColors.TextMuted,
-                )
-            } else {
-                if (lessonPlan.statusText.isNotBlank()) {
-                    Text(
-                        text = lessonPlan.statusText,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = AppColors.TextSecondary,
-                    )
-                }
-                if (lessonPlan.entries.isEmpty()) {
-                    Text(
-                        text = "No topics listed yet.",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = AppColors.TextMuted,
-                    )
-                } else {
-                    lessonPlan.entries.forEachIndexed { index, entry ->
-                        Surface(
-                            color = AppColors.SurfaceElevated,
-                            shape = RoundedCornerShape(10.dp),
-                            modifier = Modifier.fillMaxWidth(),
-                        ) {
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = 14.dp, vertical = 12.dp),
-                                horizontalArrangement = Arrangement.spacedBy(12.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                            ) {
-                                Text(
-                                    text = "${index + 1}.",
-                                    style = MaterialTheme.typography.labelMedium,
-                                    color = AppColors.TextMuted,
-                                )
-                                Text(
-                                    text = entry.title,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = AppColors.TextPrimary,
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-private fun formatScore(value: Double): String {
-    val asLong = value.toLong()
-    return if (value == asLong.toDouble()) asLong.toString() else "%.1f".format(value)
 }

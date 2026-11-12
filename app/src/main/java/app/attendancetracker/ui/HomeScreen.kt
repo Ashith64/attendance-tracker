@@ -287,15 +287,57 @@ private fun CoursesListContent(
             }
         }
 
-        items(
-            items = state.courses,
-            key = { "${it.term}:${it.courseCode}" },
-        ) { course ->
-            CourseAttendanceCard(
-                course = course,
-                thresholdPercent = state.thresholdPercent,
-                onClick = { onCourseClick(course.courseCode) },
-            )
+        val activeCourses = state.courses.filter { it.health != CourseHealth.NO_DATA && it.conducted != null && it.conducted > 0 }
+        val noDataCourses = state.courses.filter { it.health == CourseHealth.NO_DATA || it.conducted == null || it.conducted == 0 }
+
+        if (activeCourses.isNotEmpty()) {
+            item(key = "section-my-courses") {
+                Text(
+                    text = "My Courses",
+                    style = MaterialTheme.typography.titleSmall.copy(
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 14.sp,
+                    ),
+                    color = AppColors.TextPrimary,
+                    modifier = Modifier.padding(top = 4.dp, bottom = 2.dp),
+                )
+            }
+
+            items(
+                items = activeCourses,
+                key = { "${it.term}:${it.courseCode}" },
+            ) { course ->
+                CourseAttendanceCard(
+                    course = course,
+                    thresholdPercent = state.thresholdPercent,
+                    onClick = { onCourseClick(course.courseCode) },
+                )
+            }
+        }
+
+        if (noDataCourses.isNotEmpty()) {
+            item(key = "section-no-data") {
+                Text(
+                    text = "No Attendance Records",
+                    style = MaterialTheme.typography.titleSmall.copy(
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 13.sp,
+                    ),
+                    color = AppColors.TextMuted,
+                    modifier = Modifier.padding(top = 10.dp, bottom = 2.dp),
+                )
+            }
+
+            items(
+                items = noDataCourses,
+                key = { "${it.term}:${it.courseCode}" },
+            ) { course ->
+                CourseAttendanceCard(
+                    course = course,
+                    thresholdPercent = state.thresholdPercent,
+                    onClick = { onCourseClick(course.courseCode) },
+                )
+            }
         }
 
         item(key = "bottom-spacer") {

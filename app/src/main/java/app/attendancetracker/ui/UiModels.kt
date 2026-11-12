@@ -74,8 +74,8 @@ data class AttendanceHistoryEntry(
 data class CourseDetailUiModel(
     val card: CourseCardUiModel,
     val attendanceHistory: List<AttendanceHistoryEntry>,
-    val cieData: CieData?,
-    val lessonPlan: LessonPlanData?,
+    val cieData: CieData? = null,
+    val lessonPlan: LessonPlanData? = null,
 )
 
 enum class BunkMode {

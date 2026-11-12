@@ -315,13 +315,13 @@ private fun AttendanceAppRoot(
                     )
                 }.sortedWith(
                     compareBy<CourseCardUiModel> { card ->
-                        // Group 0-attendance or no-data courses at the bottom (group 1), active courses at top (group 0)
-                        val isNoDataOrZero = card.health == CourseHealth.NO_DATA ||
-                            card.conducted == null || card.conducted == 0 ||
-                            card.attended == null || card.attended == 0
-                        if (isNoDataOrZero) 1 else 0
+                        // Only courses with NO DATA (conducted == null or conducted == 0) go to the bottom section.
+                        // Genuine 0% courses (conducted > 0, attended == 0) stay in active courses and appear FIRST (critical!).
+                        val isNoData = card.health == CourseHealth.NO_DATA ||
+                            card.conducted == null || card.conducted == 0
+                        if (isNoData) 1 else 0
                     }.thenBy { card ->
-                        // For active courses, lowest attendance percentage appears at the top
+                        // Lowest attendance percentage appears first
                         val pct = if (card.attended != null && card.conducted != null && card.conducted > 0) {
                             (card.attended.toDouble() * 100.0) / card.conducted.toDouble()
                         } else {
@@ -353,18 +353,10 @@ private fun AttendanceAppRoot(
                     val attendanceHistory by repository
                         .observeHistory(targetCode, SnapshotCategory.ATTENDANCE, termId)
                         .collectAsState(initial = emptyList())
-                    val cieSnapshot by repository
-                        .observeLatestOkSnapshot(targetCode, SnapshotCategory.CIE, termId)
-                        .collectAsState(initial = null)
-                    val lessonSnapshot by repository
-                        .observeLatestOkSnapshot(targetCode, SnapshotCategory.LESSON_PLAN, termId)
-                        .collectAsState(initial = null)
 
                     val detailModel = CourseDetailUiModel(
                         card = activeCard,
                         attendanceHistory = UiStateMapper.mapAttendanceHistory(attendanceHistory, nowMs),
-                        cieData = UiStateMapper.decodeCieData(cieSnapshot),
-                        lessonPlan = UiStateMapper.decodeLessonPlanData(lessonSnapshot),
                     )
 
                     CourseDetailScreen(
