@@ -202,6 +202,28 @@ class PortalWebViewLoginController(
                         onLoginSuccess()
                     } else if (state == "STAGE1" && credentials != null) {
                         view.evaluateJavascript(buildStage1FillJs(credentials), null)
+                    } else if (state == "STAGE2" && credentials != null) {
+                        val rel = JSONObject.quote(credentials.relation.toString())
+                        val digits = credentials.digits.trim()
+                        val d0 = JSONObject.quote(digits.getOrElse(0) { '0' }.toString())
+                        val d1 = JSONObject.quote(digits.getOrElse(1) { '0' }.toString())
+                        val d2 = JSONObject.quote(digits.getOrElse(2) { '0' }.toString())
+                        val d3 = JSONObject.quote(digits.getOrElse(3) { '0' }.toString())
+                        val combined = JSONObject.quote(digits)
+                        val prefillJs = """
+                            (function() {
+                                var sel = document.getElementById('id-type-select');
+                                if (sel) sel.value = $rel;
+                                var inputs = document.querySelectorAll('.digit-input');
+                                var vals = [$d0, $d1, $d2, $d3];
+                                for (var i = 0; i < inputs.length && i < 4; i++) {
+                                    inputs[i].value = vals[i];
+                                }
+                                var hidden = document.getElementById('enteredid');
+                                if (hidden) hidden.value = $combined;
+                            })();
+                        """.trimIndent()
+                        view.evaluateJavascript(prefillJs, null)
                     }
                 }
             }
