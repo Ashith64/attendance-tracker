@@ -1,6 +1,7 @@
 package app.attendancetracker.ui
 
 import app.attendancetracker.data.AttendancePayload
+import app.attendancetracker.data.AttendanceRecordEntity
 import app.attendancetracker.data.CourseAttendanceUiModel
 import app.attendancetracker.data.SnapshotEntity
 import app.attendancetracker.data.SnapshotStatus
@@ -71,9 +72,24 @@ data class AttendanceHistoryEntry(
     val errorMessage: String? = null,
 )
 
+enum class HistoryFilter {
+    ALL,
+    PRESENT,
+    ABSENT,
+}
+
+data class AttendanceSessionUiModel(
+    val dateText: String,
+    val slotText: String,
+    val status: String,
+    val dateMillis: Long,
+    val rawDateText: String = "",
+)
+
 data class CourseDetailUiModel(
     val card: CourseCardUiModel,
-    val attendanceHistory: List<AttendanceHistoryEntry>,
+    val attendanceHistory: List<AttendanceHistoryEntry> = emptyList(),
+    val sessionRecords: List<AttendanceSessionUiModel> = emptyList(),
     val cieData: CieData? = null,
     val lessonPlan: LessonPlanData? = null,
 )
@@ -219,6 +235,20 @@ object UiStateMapper {
             errorMessage = snap.errorMessage,
         )
     }
+
+    fun mapAttendanceRecords(records: List<AttendanceRecordEntity>): List<AttendanceSessionUiModel> =
+        records.map { entity ->
+            AttendanceSessionUiModel(
+                dateText = entity.date,
+                slotText = entity.slot,
+                status = entity.status,
+                dateMillis = entity.dateMillis,
+                rawDateText = entity.rawDateText,
+            )
+        }.sortedWith(
+            compareByDescending<AttendanceSessionUiModel> { it.dateMillis }
+                .thenByDescending { it.slotText },
+        )
 
     fun decodeCieData(snapshot: SnapshotEntity?): CieData? {
         val raw = snapshot?.payloadJson ?: return null

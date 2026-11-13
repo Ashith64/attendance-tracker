@@ -235,4 +235,13 @@ class AttendanceRepository(
             )
         }
     }
+
+    fun observeAttendanceRecords(courseCode: String, term: String): Flow<List<AttendanceRecordEntity>> =
+        dao.observeAttendanceRecords(courseCode, term)
+
+    suspend fun recordAttendanceRecords(records: List<AttendanceRecordEntity>) {
+        if (records.isNotEmpty()) {
+            dao.upsertAttendanceRecords(records)
+        }
+    }
 }

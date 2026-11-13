@@ -155,4 +155,19 @@ interface PortalDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertExamHistory(records: List<ExamHistoryEntity>)
+
+    @Query(
+        """
+        SELECT * FROM attendance_records
+        WHERE courseCode = :courseCode AND term = :term
+        ORDER BY dateMillis DESC, sessionKey DESC
+        """,
+    )
+    fun observeAttendanceRecords(courseCode: String, term: String): Flow<List<AttendanceRecordEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertAttendanceRecords(records: List<AttendanceRecordEntity>)
+
+    @Query("DELETE FROM attendance_records WHERE courseCode = :courseCode AND term = :term")
+    suspend fun clearAttendanceRecordsForCourse(courseCode: String, term: String)
 }

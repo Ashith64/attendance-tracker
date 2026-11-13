@@ -28,6 +28,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -96,6 +97,7 @@ fun CourseDetailScreen(
 
             item(key = "history-section") {
                 AttendanceHistorySection(
+                    sessionRecords = detail.sessionRecords,
                     history = detail.attendanceHistory,
                 )
             }
@@ -511,8 +513,27 @@ private fun StepperButton(
 
 @Composable
 private fun AttendanceHistorySection(
-    history: List<AttendanceHistoryEntry>,
+    sessionRecords: List<AttendanceSessionUiModel>,
+    history: List<AttendanceHistoryEntry> = emptyList(),
 ) {
+    var selectedFilter by remember { mutableStateOf(HistoryFilter.ALL) }
+
+    val allCount = sessionRecords.size
+    val presentCount = remember(sessionRecords) {
+        sessionRecords.count { it.status.equals("PRESENT", ignoreCase = true) }
+    }
+    val absentCount = remember(sessionRecords) {
+        sessionRecords.count { it.status.equals("ABSENT", ignoreCase = true) }
+    }
+
+    val filteredRecords = remember(sessionRecords, selectedFilter) {
+        when (selectedFilter) {
+            HistoryFilter.ALL -> sessionRecords
+            HistoryFilter.PRESENT -> sessionRecords.filter { it.status.equals("PRESENT", ignoreCase = true) }
+            HistoryFilter.ABSENT -> sessionRecords.filter { it.status.equals("ABSENT", ignoreCase = true) }
+        }
+    }
+
     Surface(
         color = AppColors.Surface,
         shape = RoundedCornerShape(16.dp),
@@ -521,59 +542,135 @@ private fun AttendanceHistorySection(
     ) {
         Column(
             modifier = Modifier.padding(18.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
+            verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
-            Text(
-                text = "Attendance History",
-                style = MaterialTheme.typography.titleMedium,
-                color = AppColors.TextPrimary,
-            )
-            if (history.isEmpty()) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Text(
-                    text = "No attendance snapshots recorded yet.",
+                    text = "Attendance History",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = AppColors.TextPrimary,
+                )
+                if (allCount > 0) {
+                    Text(
+                        text = "$allCount records",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = AppColors.TextMuted,
+                    )
+                }
+            }
+
+            // Filter Pills: All, Present, Absent
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                val filters = listOf(
+                    HistoryFilter.ALL to "All ($allCount)",
+                    HistoryFilter.PRESENT to "Present ($presentCount)",
+                    HistoryFilter.ABSENT to "Absent ($absentCount)",
+                )
+
+                filters.forEach { (filter, label) ->
+                    val isSelected = selectedFilter == filter
+                    val chipColor = when {
+                        isSelected && filter == HistoryFilter.PRESENT -> AppColors.SafeGreen
+                        isSelected && filter == HistoryFilter.ABSENT -> AppColors.DangerRed
+                        isSelected -> AppColors.TextPrimary
+                        else -> AppColors.SurfaceElevated
+                    }
+                    val textColor = when {
+                        isSelected -> AppColors.Background
+                        filter == HistoryFilter.PRESENT && presentCount > 0 -> AppColors.SafeGreen
+                        filter == HistoryFilter.ABSENT && absentCount > 0 -> AppColors.DangerRed
+                        else -> AppColors.TextSecondary
+                    }
+
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .clip(RoundedCornerShape(8.dp))
+                            .background(chipColor)
+                            .clickable { selectedFilter = filter }
+                            .padding(vertical = 8.dp),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Text(
+                            text = label,
+                            style = MaterialTheme.typography.labelSmall.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.Medium),
+                            color = textColor,
+                        )
+                    }
+                }
+            }
+
+            if (filteredRecords.isEmpty()) {
+                val emptyMsg = when {
+                    sessionRecords.isEmpty() -> "No class attendance dates recorded yet."
+                    selectedFilter == HistoryFilter.PRESENT -> "No present attendance records."
+                    selectedFilter == HistoryFilter.ABSENT -> "No absent records (100% attendance so far)."
+                    else -> "No attendance records match the filter."
+                }
+                Text(
+                    text = emptyMsg,
                     style = MaterialTheme.typography.bodyMedium,
                     color = AppColors.TextMuted,
+                    modifier = Modifier.padding(vertical = 8.dp),
                 )
             } else {
-                history.forEach { entry ->
-                    Surface(
-                        color = AppColors.SurfaceElevated,
-                        shape = RoundedCornerShape(10.dp),
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 14.dp, vertical = 12.dp),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically,
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    filteredRecords.forEach { session ->
+                        val isPresent = session.status.equals("PRESENT", ignoreCase = true)
+                        Surface(
+                            color = AppColors.SurfaceElevated,
+                            shape = RoundedCornerShape(10.dp),
+                            border = BorderStroke(
+                                1.dp,
+                                if (isPresent) AppColors.SafeGreen.copy(alpha = 0.2f) else AppColors.DangerRed.copy(alpha = 0.2f),
+                            ),
+                            modifier = Modifier.fillMaxWidth(),
                         ) {
-                            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                                val countsText = if (entry.attended != null && entry.conducted != null) {
-                                    "${entry.attended} / ${entry.conducted} classes"
-                                } else {
-                                    entry.errorMessage ?: "Fetch failed"
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 14.dp, vertical = 10.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                                    Text(
+                                        text = session.dateText,
+                                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold),
+                                        color = AppColors.TextPrimary,
+                                    )
+                                    if (session.slotText.isNotBlank()) {
+                                        Text(
+                                            text = session.slotText,
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = AppColors.TextMuted,
+                                        )
+                                    }
                                 }
-                                Text(
-                                    text = countsText,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = AppColors.TextPrimary,
-                                )
-                                Text(
-                                    text = entry.timestampLabel,
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = AppColors.TextMuted,
-                                )
+
+                                Surface(
+                                    color = if (isPresent) AppColors.SafeGreen.copy(alpha = 0.15f) else AppColors.DangerRed.copy(alpha = 0.15f),
+                                    shape = RoundedCornerShape(6.dp),
+                                    border = BorderStroke(
+                                        1.dp,
+                                        if (isPresent) AppColors.SafeGreen.copy(alpha = 0.35f) else AppColors.DangerRed.copy(alpha = 0.35f),
+                                    ),
+                                ) {
+                                    Text(
+                                        text = if (isPresent) "PRESENT" else "ABSENT",
+                                        style = MaterialTheme.typography.labelSmall.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.Bold),
+                                        color = if (isPresent) AppColors.SafeGreen else AppColors.DangerRed,
+                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                                    )
+                                }
                             }
-                            Text(
-                                text = entry.percentageText,
-                                style = MaterialTheme.typography.titleMedium,
-                                color = when (entry.status) {
-                                    SnapshotStatus.OK -> AppColors.TextPrimary
-                                    SnapshotStatus.SUSPECT -> AppColors.WarningAmber
-                                    SnapshotStatus.FAILED -> AppColors.DangerRed
-                                },
-                            )
                         }
                     }
                 }

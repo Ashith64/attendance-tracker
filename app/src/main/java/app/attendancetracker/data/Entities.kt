@@ -97,11 +97,54 @@ data class SnapshotEntity(
 )
 
 @Serializable
+data class AttendanceRecordItem(
+    val date: String,
+    val slot: String,
+    val status: String,
+    val dateMillis: Long = 0L,
+    val rawDateText: String = "",
+)
+
+@Serializable
 data class AttendancePayload(
     val attended: Int,
     val conducted: Int,
     val stillToGo: Int = 0,
     val unit: String = "classes",
+    val records: List<AttendanceRecordItem> = emptyList(),
+)
+
+/**
+ * Individual class session attendance record (Present or Absent).
+ * Scraped from portal tables cn-attend-list1 (Present) and cn-attend-list2 (Absent).
+ * Scoped by courseCode and term to maintain semester history.
+ */
+@Entity(
+    tableName = "attendance_records",
+    primaryKeys = ["courseCode", "term", "sessionKey"],
+    foreignKeys = [
+        ForeignKey(
+            entity = CourseEntity::class,
+            parentColumns = ["code", "term"],
+            childColumns = ["courseCode", "term"],
+            onDelete = ForeignKey.CASCADE,
+        ),
+    ],
+    indices = [
+        Index(value = ["courseCode", "term"]),
+        Index(value = ["dateMillis"]),
+    ],
+)
+data class AttendanceRecordEntity(
+    val courseCode: String,
+    val term: String,
+    val sessionKey: String,
+    val date: String,
+    val slot: String,
+    val status: String,
+    val dateMillis: Long,
+    val rawDateText: String,
+    val fetchedAt: Long,
 )
 
 /**

@@ -2,6 +2,8 @@ package app.attendancetracker.sync
 
 import android.util.Log
 import app.attendancetracker.data.AttendancePayload
+import app.attendancetracker.data.AttendanceRecordEntity
+import app.attendancetracker.data.AttendanceRecordItem
 import app.attendancetracker.data.AttendanceRepository
 import app.attendancetracker.data.ExamHistoryEntity
 import app.attendancetracker.data.SnapshotCategory
@@ -9,6 +11,7 @@ import app.attendancetracker.data.SnapshotStatus
 import app.attendancetracker.data.UrlSanitizer
 import app.attendancetracker.network.FetchResult
 import app.attendancetracker.network.PortalSyncClient
+import app.attendancetracker.parser.AttendanceDateParser
 import app.attendancetracker.parser.ParseResult
 import app.attendancetracker.parser.PortalParsers
 import app.attendancetracker.security.AuthSessionSnapshot
@@ -133,7 +136,7 @@ class SyncManager(
     private var lastExamHistorySyncAtMs: Long? = null
 
     /**
-     * Runs a subject-wise sync for Attendance, CIE, and Lesson Plan.
+     * Runs a subject-wise sync for Attendance.
      * Sequential per-course to respect Joomla session affinity — the portal returns
      * the login page when too many parallel requests share the same cookie jar.
      * - Returns immediately if another sync is already in progress.
@@ -176,13 +179,21 @@ class SyncManager(
                 SessionState.SESSION_VALID -> Unit
             }
 
-            currentCoroutineContext().ensureActive()
-
-            val dashFetch = syncClient.fetchDashboard()
+            var dashFetch = syncClient.fetchDashboard()
             Log.d("SyncManager", "fetchDashboard returned: ${dashFetch::class.simpleName}")
+
+            if (dashFetch is FetchResult.SessionExpired) {
+                Log.d("SyncManager", "Dashboard session expired, re-authenticating with onSessionExpired()")
+                val handled = handleMidSyncSessionExpired(dashFetch.reason)
+                if (handled !is SyncState.Running) {
+                    return handled
+                }
+                dashFetch = syncClient.fetchDashboard()
+            }
+
             when (dashFetch) {
                 is FetchResult.SessionExpired -> {
-                    Log.d("SyncManager", "Dashboard session expired: ${dashFetch.reason}")
+                    Log.d("SyncManager", "Dashboard session still expired after re-auth: ${dashFetch.reason}")
                     return handleMidSyncSessionExpired(dashFetch.reason)
                 }
                 is FetchResult.Error -> {
@@ -235,7 +246,17 @@ class SyncManager(
                 val attUrl = course.attendanceUrl
                 if (attUrl != null) {
                     Log.d("SyncManager", "  ATT ${course.code}: fetching ${UrlSanitizer.sanitize(attUrl)}")
-                    when (val attFetch = syncClient.fetchHtml(attUrl)) {
+                    var attFetch = syncClient.fetchHtml(attUrl)
+                    if (attFetch is FetchResult.SessionExpired) {
+                        Log.w("SyncManager", "  ATT ${course.code}: session expired mid-sync, re-authenticating")
+                        val handled = handleMidSyncSessionExpired(attFetch.reason)
+                        if (handled !is SyncState.Running) {
+                            return handled
+                        }
+                        attFetch = syncClient.fetchHtml(attUrl)
+                    }
+
+                    when (attFetch) {
                         is FetchResult.SessionExpired -> {
                             Log.w("SyncManager", "  ATT ${course.code}: session expired mid-sync")
                             return handleMidSyncSessionExpired(attFetch.reason)
@@ -259,12 +280,62 @@ class SyncManager(
                                 is ParseResult.Success -> {
                                     val d = parsed.data
                                     Log.d("SyncManager", "  ATT ${course.code}: present=${d.presentCount} conducted=${d.conductedCount}")
+
+                                    // Parse and persist date-wise Present and Absent history records
+                                    val presentEntities = d.presentRows.map { row ->
+                                        val parsedDate = AttendanceDateParser.parse(row.date, row.time)
+                                        val slot = AttendanceDateParser.formatSlot(row.time)
+                                        val key = "${row.date.trim()}|${row.time.trim()}|PRESENT|${row.slNo.trim()}"
+                                        AttendanceRecordEntity(
+                                            courseCode = course.code,
+                                            term = termId,
+                                            sessionKey = key,
+                                            date = parsedDate.formattedDate,
+                                            slot = slot,
+                                            status = "PRESENT",
+                                            dateMillis = parsedDate.epochMillis,
+                                            rawDateText = row.date.trim(),
+                                            fetchedAt = clock(),
+                                        )
+                                    }
+
+                                    val absentEntities = d.absentRows.map { row ->
+                                        val parsedDate = AttendanceDateParser.parse(row.date, row.time)
+                                        val slot = AttendanceDateParser.formatSlot(row.time)
+                                        val key = "${row.date.trim()}|${row.time.trim()}|ABSENT|${row.slNo.trim()}"
+                                        AttendanceRecordEntity(
+                                            courseCode = course.code,
+                                            term = termId,
+                                            sessionKey = key,
+                                            date = parsedDate.formattedDate,
+                                            slot = slot,
+                                            status = "ABSENT",
+                                            dateMillis = parsedDate.epochMillis,
+                                            rawDateText = row.date.trim(),
+                                            fetchedAt = clock(),
+                                        )
+                                    }
+
+                                    val allEntities = presentEntities + absentEntities
+                                    repository.recordAttendanceRecords(allEntities)
+
+                                    val recordItems = allEntities.map {
+                                        AttendanceRecordItem(
+                                            date = it.date,
+                                            slot = it.slot,
+                                            status = it.status,
+                                            dateMillis = it.dateMillis,
+                                            rawDateText = it.rawDateText,
+                                        )
+                                    }
+
                                     val payload = json.encodeToString(
                                         AttendancePayload(
                                             attended = d.presentCount,
                                             conducted = d.conductedCount,
                                             stillToGo = d.stillToGoCount,
                                             unit = "classes",
+                                            records = recordItems,
                                         ),
                                     )
                                     repository.recordSnapshot(
@@ -382,12 +453,23 @@ class SyncManager(
 
     private suspend fun handleMidSyncSessionExpired(reason: String): SyncState {
         val next = onSessionExpired()
-        _state.value = when (next) {
-            SessionState.FIRST_LOGIN -> SyncState.NeedsLogin
-            SessionState.CHALLENGE_REQUIRED -> SyncState.NeedsChallenge(reason)
-            else -> SyncState.Failed(reason)
+        return when (next) {
+            SessionState.FIRST_LOGIN -> {
+                _state.value = SyncState.NeedsLogin
+                _state.value
+            }
+            SessionState.CHALLENGE_REQUIRED -> {
+                _state.value = SyncState.NeedsChallenge(reason)
+                _state.value
+            }
+            SessionState.SESSION_EXPIRED -> {
+                _state.value = SyncState.Failed("Session expired during sync: $reason")
+                _state.value
+            }
+            SessionState.SESSION_VALID -> {
+                _state.value
+            }
         }
-        return _state.value
     }
 
     private suspend fun recordFailedSection(

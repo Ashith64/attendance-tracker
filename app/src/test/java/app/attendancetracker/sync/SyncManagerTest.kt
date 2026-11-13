@@ -1,5 +1,6 @@
 package app.attendancetracker.sync
 
+import app.attendancetracker.data.AttendanceRecordEntity
 import app.attendancetracker.data.AttendanceRepository
 import app.attendancetracker.data.CourseEntity
 import app.attendancetracker.data.ExamHistoryEntity
@@ -90,6 +91,10 @@ private class InMemorySyncDao : PortalDao {
     override suspend fun upsertExamHistory(records: List<ExamHistoryEntity>) {
         examHistoryFlow.value = records
     }
+    override fun observeAttendanceRecords(courseCode: String, term: String): Flow<List<AttendanceRecordEntity>> =
+        kotlinx.coroutines.flow.flowOf(emptyList())
+    override suspend fun upsertAttendanceRecords(records: List<AttendanceRecordEntity>) = Unit
+    override suspend fun clearAttendanceRecordsForCourse(courseCode: String, term: String) = Unit
 }
 
 private class FakePortalSyncClient(

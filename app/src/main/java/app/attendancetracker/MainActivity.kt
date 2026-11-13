@@ -367,10 +367,18 @@ private fun AttendanceAppRoot(
                     val attendanceHistory by repository
                         .observeHistory(targetCode, SnapshotCategory.ATTENDANCE, termId)
                         .collectAsState(initial = emptyList())
+                    val sessionRecords by repository
+                        .observeAttendanceRecords(targetCode, termId)
+                        .collectAsState(initial = emptyList())
+
+                    val mappedSessions = remember(sessionRecords) {
+                        UiStateMapper.mapAttendanceRecords(sessionRecords)
+                    }
 
                     val detailModel = CourseDetailUiModel(
                         card = activeCard,
                         attendanceHistory = UiStateMapper.mapAttendanceHistory(attendanceHistory, nowMs),
+                        sessionRecords = mappedSessions,
                     )
 
                     CourseDetailScreen(

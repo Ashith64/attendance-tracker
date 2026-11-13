@@ -34,5 +34,15 @@
     3. Documented Attendance-Only architecture scope in `README.md`.
     4. Fixed BunkCalculator edge case for zero conducted classes to strictly preserve "No data" per Rule 16.
     5. Filtered sensitive query tokens (signatures, keys, auth) from all Logcat statements via `UrlSanitizer`.
-- **Next:** Push changes to GitHub and publish v1.0.1 release asset.
+  - Live Sync Fix & Date-Wise Attendance History (v1.0.2):
+    1. **Manual Synchronization Resilience**: Resolved mid-sync session expiration aborts in `SyncManager.kt`. When session cookies expire, `SyncManager` automatically re-authenticates and retries the HTTP request without failing or aborting the sync.
+    2. **Single-Flight Concurrency Guarantee**: Clean `syncMutex.tryLock()` single-flight model prevents deadlocks and coroutine leaks while allowing manual refresh (`forceRefresh = true`) to execute fresh synchronization reliably.
+    3. **Date-Wise Attendance History in Course Details**: Implemented interactive session history strictly within `CourseDetailScreen.kt` with `All`, `Present`, `Absent` filter pills, class date, time slot, and status badges (green `PRESENT`, red `ABSENT`).
+    4. **Pure Kotlin `AttendanceDateParser`**: Parses dates (`dd-MM-yyyy`, `dd/MM/yyyy`, `yyyy-MM-dd`), extracts start times into `dateMillis` for chronological descending sorting (newest first), and formats slots cleanly (`11:00 - 12:00`).
+    5. **Room Schema Migration 1->2**: Added `AttendanceRecordEntity` with composite key `(courseCode, term, sessionKey)` for automatic deduplication, indexed by `dateMillis` and `(courseCode, term)`.
+    6. **Preservation of Home Dashboard UI**: Home screen layout, typography, colors, padding, card design, and counts remain 100% frozen and visually unchanged.
+    7. **100% Test Pass Rate**: 63 of 63 unit tests pass across all suites (`AttendanceDateParserTest`, `AttendanceRepositoryTest`, `SyncManagerTest`, `PortalParsersTest`, `PortalFetcherTest`, etc.).
+    8. **Build Deliverables**: Fresh `builds/app-debug.apk` and `builds/app-release.apk` compiled and ready.
+    9. **Documentation**: Detailed report in `docs/ATTENDANCE_HISTORY_AND_SYNC_REPORT.md`.
+- **Next:** Push changes to GitHub and release v1.0.2.
 - **Blockers:** None.

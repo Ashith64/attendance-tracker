@@ -20,6 +20,7 @@ private class FakePortalDao : PortalDao {
     private val coursesFlow = MutableStateFlow<List<CourseEntity>>(emptyList())
     private val snapshotsFlow = MutableStateFlow<List<SnapshotEntity>>(emptyList())
     private val examHistoryFlow = MutableStateFlow<List<ExamHistoryEntity>>(emptyList())
+    private val recordsFlow = MutableStateFlow<List<AttendanceRecordEntity>>(emptyList())
     private var nextId = 1L
 
     override fun allTerms(): Flow<List<TermEntity>> =
@@ -129,6 +130,21 @@ private class FakePortalDao : PortalDao {
     override suspend fun upsertExamHistory(records: List<ExamHistoryEntity>) {
         val keys = records.map { it.headerLabel }.toSet()
         examHistoryFlow.value = examHistoryFlow.value.filterNot { it.headerLabel in keys } + records
+    }
+
+    override fun observeAttendanceRecords(courseCode: String, term: String): Flow<List<AttendanceRecordEntity>> =
+        recordsFlow.map { list ->
+            list.filter { it.courseCode == courseCode && it.term == term }
+                .sortedWith(compareByDescending<AttendanceRecordEntity> { it.dateMillis }.thenByDescending { it.sessionKey })
+        }
+
+    override suspend fun upsertAttendanceRecords(records: List<AttendanceRecordEntity>) {
+        val keys = records.map { Triple(it.courseCode, it.term, it.sessionKey) }.toSet()
+        recordsFlow.value = recordsFlow.value.filterNot { Triple(it.courseCode, it.term, it.sessionKey) in keys } + records
+    }
+
+    override suspend fun clearAttendanceRecordsForCourse(courseCode: String, term: String) {
+        recordsFlow.value = recordsFlow.value.filterNot { it.courseCode == courseCode && it.term == term }
     }
 }
 
@@ -368,5 +384,47 @@ class AttendanceRepositoryTest {
         assertEquals(10_005L, history.last().fetchedAt)
         assertFalse(history.first().sourceUrl.contains("ksign"))
         assertFalse(history.first().sourceUrl.contains("token"))
+    }
+
+    @Test
+    fun `recordAttendanceRecords stores, deduplicates and sorts records chronologically`() = runTest {
+        val dao = FakePortalDao()
+        val repo = AttendanceRepository(dao)
+
+        val r1 = AttendanceRecordEntity(
+            courseCode = "C1",
+            term = "T1",
+            sessionKey = "17-08-2026|11:00 TO 12:00|PRESENT|1",
+            date = "17 Aug 2026",
+            slot = "11:00 - 12:00",
+            status = "PRESENT",
+            dateMillis = 1000L,
+            rawDateText = "17-08-2026",
+            fetchedAt = 5000L,
+        )
+        val r2 = AttendanceRecordEntity(
+            courseCode = "C1",
+            term = "T1",
+            sessionKey = "18-08-2026|09:00 TO 10:00|ABSENT|2",
+            date = "18 Aug 2026",
+            slot = "09:00 - 10:00",
+            status = "ABSENT",
+            dateMillis = 2000L,
+            rawDateText = "18-08-2026",
+            fetchedAt = 5000L,
+        )
+
+        repo.recordAttendanceRecords(listOf(r1, r2))
+
+        val records = repo.observeAttendanceRecords("C1", "T1").first()
+        assertEquals(2, records.size)
+        // Most recent dateMillis first
+        assertEquals("ABSENT", records[0].status)
+        assertEquals("PRESENT", records[1].status)
+
+        // Upserting the same records again does not duplicate
+        repo.recordAttendanceRecords(listOf(r1, r2))
+        val recordsAfterDuplicate = repo.observeAttendanceRecords("C1", "T1").first()
+        assertEquals(2, recordsAfterDuplicate.size)
     }
 }
